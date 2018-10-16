@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
-		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
+		message.guild.createChannel(`ticket-${message.author}`, "text").then(c => {
 			let role = message.guild.roles.find("name", 501793846355820574);
 			let role2 = message.guild.roles.find("name", "@everyone");
 			c.overwritePermissions(role, {
