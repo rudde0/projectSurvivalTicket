@@ -32,7 +32,7 @@ client.on("message", (message) => {
 
   if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
     message.channel.send(`İŞTE GELİYOR!`).then(m => {
-    m.edit(`:ping_pong: Wow, Bu çok hızlı oldu dostum. **Pong!**\nMesaj Editleme zamanım ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
+    m.edit(`:ping_pong: API zamanlaması, ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
     });
 }
 
@@ -45,7 +45,7 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
     if (!message.guild.roles.exists("name", "Destek Ekibi")) return message.channel.send(`Bu Sunucuda '**Destek Ekibi**' rolünü bulamadım bu yüzden ticket açamıyorum \nEğer sunucu sahibisen, Destek Ekibi Rolünü oluşturabilirsin.`);
     if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Zaten açık durumda bir ticketin var.`);
     message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-        let role = message.guild.roles.find("name", "Destek Ekibi");
+        let role = message.guild.roles.find("name", "🛡️ Ticket Yetkilisi");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
             SEND_MESSAGES: true,
@@ -59,21 +59,21 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
             SEND_MESSAGES: true,
             READ_MESSAGES: true
         });
-        message.channel.send(`:white_check_mark: Ticket Kanalın oluşturuldu, #${c.name}.`);
+        message.channel.send(`:white_check_mark: Destek bildirimin başarıyla oluşturuldu, #${c.name}.`);
         const embed = new Discord.RichEmbed()
         .setColor(0xCF40FA)
-        .addField(`Hey ${message.author.username}!`, `Selam Başarılı bir Şekilde Ticket Açıldı, Bu bot opensource bir projedir. http://github.com/arpelo`)
+        .addField(`${message.author.username}!`, `Başarıyla ticket açtın, lütfen yetkilileri etiketleme.`)
         .setTimestamp();
         c.send({ embed: embed });
         message.delete();
     }).catch(console.error);
 }
 if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
-    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Bu komutu kullanamazsın ticket kanalında olman gerekir. Bu bot opensource bir projedir. http://github.com/arpelo`);
+    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Bu komut sadece kişisel destek odanda kullanılabilir.`);
 
-    message.channel.send(`Destek Kanalını kapatmaya emin misin? kapatmak için **-kapat** yazman yeterli. Bu bot opensource bir projedir. http://github.com/arpelo`)
+    message.channel.send(`Destek kanalını kapatmak istediğine eminsen **-kapat** yazman yeterli.`)
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-kapat.Bu bot opensource bir projedir. http://github.com/arpelo', {
+      message.channel.awaitMessages(response => response.content === '-kapat.', {
         max: 1,
         time: 10000,
         errors: ['time'],
@@ -82,16 +82,12 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
           message.channel.delete();
         })
         .catch(() => {
-          m.edit('Ticket Kapatma isteğin zaman aşımına uğradı.').then(m2 => {
+          m.edit('Ticket kapatma isteğin zaman aşımına uğradı.').then(m2 => {
               m2.delete();
           }, 3000);
         });
     });
 }
-
-/*
-http://github.com/arpelo
-*/
 
 });
 
