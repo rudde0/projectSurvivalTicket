@@ -10,7 +10,7 @@ client.on('ready', () => {
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
 		message.guild.createChannel(`ticket-${message.author}`, "text").then(c => {
-			let role = message.guild.roles.find("name", "\@🛡️ Ticket Yetkilisi");
+			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			c.overwritePermissions(role, {
 				SEND_MESSAGES: true,
