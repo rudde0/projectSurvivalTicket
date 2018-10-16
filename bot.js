@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client();
 
-const prefix = "-";
+const prefix = "v";
 
 // Startup console message
 client.on("ready", () => {
