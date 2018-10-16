@@ -32,13 +32,6 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark: (#${c.name})")
 		message.channel.send({embed: embed});
-		message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
-		.setColor(0xCF40FA)
-		.addField("Ticket odası", "Ticket odasına hoş geldin. Sorununu burada belirt, yetkililer müsait olunca yardımcı olacaklardır.")
-		.setTimestamp();
-		c.send({
-			embed: embed
-		});
 	}
 	if (message.content === '-kapat') {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
