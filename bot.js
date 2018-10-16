@@ -125,8 +125,8 @@ client.on("message", (message) => {
                 READ_MESSAGES: true
             });
             c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
             });
             c.overwritePermissions(message.author, {
                 SEND_MESSAGES: true,
