@@ -1,1 +1,1 @@
-# Arpello'ya ticket botu için teşekkürler.
+# Thanks to Vulnix for ticketbot
