@@ -44,7 +44,6 @@ client.on('message', message => {
 		.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
 		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.")
 		message.channel.send({embed: embed});
-		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
 	}
 	if (message.content === '-kapat') {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
