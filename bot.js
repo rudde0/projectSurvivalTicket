@@ -1,8 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-/*
-http://github.com/arpelo
-*/
 
 function clean(text) {
     if (typeof(text) === "string")
@@ -31,21 +28,17 @@ client.on("message", (message) => {
   }
 
   if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
-    message.channel.send(`Hesaplama yapılıyor...`).then(m => {
+    message.channel.send(`API zamanlaması test ediliyor`).then(m => {
     m.edit(`:ping_pong: API zamanlaması, ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
     });
 }
 
-/*
-http://github.com/arpelo
-*/
-
 if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
-    if (!message.guild.roles.exists("name", "Ticket Yetkilisi")) return message.channel.send(`Bu Sunucuda '**Destek Ekibi**' rolünü bulamadım bu yüzden ticket açamıyorum \nEğer sunucu sahibisen, Destek Ekibi Rolünü oluşturabilirsin.`);
+    if (!message.guild.roles.exists("name", "Destek Ekibi")) return message.channel.send(`Bu Sunucuda '**Destek Ekibi**' rolünü bulamadım bu yüzden ticket açamıyorum \nEğer sunucu sahibisen, Destek Ekibi Rolünü oluşturabilirsin.`);
     if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Zaten açık durumda bir ticketin var.`);
     message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-        let role = message.guild.roles.find("name", "Ticket Yetkilisi");
+        let role = message.guild.roles.find("name", "Destek Ekibi");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
             SEND_MESSAGES: true,
