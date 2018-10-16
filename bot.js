@@ -12,7 +12,6 @@ function clean(text) {
 }
 
 var prefix = "!";
-var token = bot_tokeni;
 
 client.on("ready", () => {
   console.log("Bu bot opensource bir projedir. http://github.com/arpelo");
@@ -107,4 +106,4 @@ http://github.com/arpelo
 
 });
 
-client.login("Rwy6VeAcIDYSatr4cC5KmSA4qu83_hsn");
+client.login(process.env.bottokeni);
