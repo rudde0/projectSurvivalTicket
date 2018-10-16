@@ -31,7 +31,7 @@ client.on("message", (message) => {
     .addField(`Diğer`, `[${prefix}yardım]() > yardım menüsünü gösterir.`)
     message.channel.send({ embed: embed });
   }
-}
+});
 
 if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
