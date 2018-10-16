@@ -11,22 +11,12 @@ function clean(text) {
         return text;
 }
 
-var prefix = "!";
+var prefix = "-";
 
 client.on("ready", () => {
-  console.log("Bu bot opensource bir projedir. http://github.com/arpelo");
-  console.log("Bot Giriş Yaptı Şu Kadar Sunucuya Hizmet veriyorum:" + client.guilds.size);
-  client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
+	console.log('Köpüş bot, etkinleştirildi!')
+	client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
 });
-
-client.on("guildCreate", (guild) => {
-client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
-    guild.owner.user.send(`Selam bu bot opensource bir projedir. http://github.com/arpelo`);
-});
-
-/*
-http://github.com/arpelo
-*/
 
 client.on("message", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
