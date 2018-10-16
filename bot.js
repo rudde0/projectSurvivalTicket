@@ -12,7 +12,7 @@ function clean(text) {
 }
 
 var prefix = "!";
-var token = "Token Buraya";
+var token = process.ENV.bot_tokeni;
 
 client.on("ready", () => {
   console.log("projectsurvivalmc.com");
