@@ -8,8 +8,7 @@ function clean(text) {
         return text;
 }
 
-var prefix = "!";
-var token = "Token Buraya";
+var prefix = "-";
 
 client.on("ready", () => {
   client.user.setGame(`projectsurvivalmc.com | ${prefix}yardım`);
