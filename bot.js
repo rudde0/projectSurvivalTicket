@@ -9,6 +9,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
+		if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		message.guild.createChannel(`ticket-${message.author}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
@@ -32,6 +33,12 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark: (#${c.name})")
 		message.channel.send({embed: embed});
+		.setColor('#00ff00')
+		.setTimestamp()
+		.setAuthor(message.author.username, message.author.avatarURL)
+		.setThumbnail(message.guild.iconURL)
+		.addField("Bilgilendirme", "Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.")
+		message.author.send({embed: embed});
 	}
 	if (message.content === '-kapat') {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
