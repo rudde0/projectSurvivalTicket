@@ -40,7 +40,7 @@ client.on('message', message => {
 			message.channel.awaitMessages(response => response.content === '-onayla', {
 				max: 1,
 				time: 10000,
-				errors: ['time']
+				errors: ['time'],
 		})
 		.then((collected) => {
 			message.channel.delete();
