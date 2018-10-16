@@ -8,17 +8,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (message.content === '-yardım' || message.content === '-yardim'') {
-		var embed = new Discord.RichEmbed()
-		.setColor('#00FF00')
-		.setTimestamp()
-		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
-		.setThumbnail(message.guild.iconURL)
-		.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
-		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.")
-		message.channel.send({embed: embed});
-		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
-	}
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
 		if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
@@ -43,6 +32,17 @@ client.on('message', message => {
 		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
+		message.channel.send({embed: embed});
+		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
+	}
+	if (message.content === '-yardım' || message.content === '-yardim'') {
+		var embed = new Discord.RichEmbed()
+		.setColor('#00FF00')
+		.setTimestamp()
+		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
+		.setThumbnail(message.guild.iconURL)
+		.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
+		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.")
 		message.channel.send({embed: embed});
 		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
 	}
