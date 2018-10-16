@@ -1,4 +1,11 @@
-# Köpüş Discord sunucusu için node.js dilinde yazılmış bir bot.
-Sen bu botun kaynak kodlarına bakıyorsun da node.js bilmediğim için bu botu yapmak yaklaşık bir haftamı aldı haberin olsun. Eğer yararlanacaksan da eline sağlık kardeşimini alırım.
+# discord-turkce-ticket-system 
+Tamamen türkçe ticket bot iyi kullanmalar. :+1:
+<br>
+## Örnek Fotoğraflar
+<br>
 
-Bizim sunucuya göz atmak istersen buradayız: http://bit.ly/kopusDC/
+![alt text](https://github.com/Arpelo/discord-turkce-ticket-system/blob/master/img/ticket1.jpg)
+
+<br>
+
+![alt text](https://github.com/Arpelo/discord-turkce-ticket-system/blob/master/img/ticket3.jpg)
