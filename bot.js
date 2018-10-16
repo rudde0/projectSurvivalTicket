@@ -90,4 +90,4 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 
 });
 
-client.login(process.ENV.bot_tokeni);
+client.login(process.env.bot_tokeni);
