@@ -67,18 +67,18 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
 
 	message.channel.send(`Destek kanalını kapatmak istediğine eminsen **-kapat** yazman yeterli.`)
 	.then((m) => {
-	message.channel.awaitMessages(response => response.content === '-kapat.', {
-		max: 1,
-		time: 10000,
-		errors: ['time'],
+		message.channel.awaitMessages(response => response.content === '-kapat.', {
+			max: 1,
+			time: 10000,
+			errors: ['time'],
 	})
 	.then((collected) => {
 		message.channel.delete();
 	})
 	.catch(() => {
 		m.edit('Ticket kapatma isteğin zaman aşımına uğradı.').then(m2 => {
-		m2.delete();
-	}, 3000);
+			m2.delete();
+		}, 3000);
 	});
 	});
 }
