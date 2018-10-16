@@ -1,8 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-/*
-http://github.com/arpelo
-*/
 
 function clean(text) {
     if (typeof(text) === "string")
@@ -11,53 +8,44 @@ function clean(text) {
         return text;
 }
 
-var prefix = "!";
-var token = process.ENV.bot_tokeni;
+var prefix = "v";
+var token = " ";
 
 client.on("ready", () => {
-  console.log("projectsurvivalmc.com");
-  console.log("Bot Giriş Yaptı Şu Kadar Sunucuya Hizmet veriyorum:" + client.guilds.size);
-  client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
+  console.log("Vulnix | Logged in! Server count: ${client.guilds.size}");
+  client.user.setGame(`vhelp / vnew | ${client.guilds.size} servers`);
 });
 
 client.on("guildCreate", (guild) => {
-client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
-    guild.owner.user.send(`Selam bu bot opensource bir projedir. http://github.com/arpelo`);
+client.user.setGame(`vhelp / vnew | ${client.guilds.size} servers`);
+    guild.owner.user.send(`Hello! I'm Vulnix!\nThanks for adding me to your guild!\n\nView all of my commands with \`vhelp\`.\nLearn more about me with \`vabout\`.\n\n**About:**Vulnix is a simple Discord support ticket bot that aims to provide easy to use mod and support functions for all servers!\n\n\Enjoy! ~Vulnix Teamn\*Need help? Wanna chill?*  Join the Vulnix Discord! https://discord.gg/HqNPFTC`);
 });
-
-/*
-http://github.com/arpelo
-*/
 
 client.on("message", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-  if (message.content.toLowerCase().startsWith(prefix + `yardım`)) {
+  if (message.content.toLowerCase().startsWith(prefix + `help`)) {
     const embed = new Discord.RichEmbed()
-    .setTitle(`:mailbox_with_mail: xBOT Ticket System`)
+    .setTitle(`:mailbox_with_mail: Vulnix Help`)
     .setColor(0xCF40FA)
-    .setDescription(`Selam! Ben github.com/arpelo'un hazırlamış olduğu bir botum, sana yardımcı olmak için buradayım.`)
-    .addField(`Tickets`, `[${prefix}ticketaç]() > Destek Bildirimi Oluşturur!\n[${prefix}ticketkapat]() > Ticket kapatır!`)
-    .addField(`Diğer`, `[${prefix}yardım]() > yardım menüsünü gösterir.\n[${prefix}ping]() > Discord API ping değerini gösterir.`)
+    .setDescription(`Hello! I'm Vulnix, the Discord bot for super cool support ticket stuff and more! Here are my commands:`)
+    .addField(`Tickets`, `[${prefix}new]() > Opens up a new ticket and tags the Support Team\n[${prefix}close]() > Closes a ticket that has been resolved or been opened by accident`)
+    .addField(`Other`, `[${prefix}help]() > Shows you this help menu your reading\n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}about]() > Tells you all about Vulnix`)
     message.channel.send({ embed: embed });
   }
 
   if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
-    message.channel.send(`İŞTE GELİYOR!`).then(m => {
-    m.edit(`:ping_pong: Wow, Bu çok hızlı oldu dostum. **Pong!**\nMesaj Editleme zamanım ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
+    message.channel.send(`Hoold on!`).then(m => {
+    m.edit(`:ping_pong: Wew, made it over the ~waves~ ! **Pong!**\nMessage edit time is ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API heartbeat is ` + Math.round(client.ping) + `ms.`);
     });
 }
 
-/*
-http://github.com/arpelo
-*/
-
-if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
+if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
-    if (!message.guild.roles.exists("name", "Destek Ekibi")) return message.channel.send(`Bu Sunucuda '**Destek Ekibi**' rolünü bulamadım bu yüzden ticket açamıyorum \nEğer sunucu sahibisen, Destek Ekibi Rolünü oluşturabilirsin.`);
-    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Zaten açık durumda bir ticketin var.`);
+    if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
+    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
     message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-        let role = message.guild.roles.find("name", "Destek Ekibi");
+        let role = message.guild.roles.find("name", "Support Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
             SEND_MESSAGES: true,
@@ -71,21 +59,20 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
             SEND_MESSAGES: true,
             READ_MESSAGES: true
         });
-        message.channel.send(`:white_check_mark: Ticket Kanalın oluşturuldu, #${c.name}.`);
+        message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
         const embed = new Discord.RichEmbed()
         .setColor(0xCF40FA)
-        .addField(`Hey ${message.author.username}!`, `Selam Başarılı bir Şekilde Ticket Açıldı, Bu bot opensource bir projedir. http://github.com/arpelo`)
+        .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Team** will be here soon to help.`)
         .setTimestamp();
         c.send({ embed: embed });
-        message.delete();
     }).catch(console.error);
 }
-if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
-    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Bu komutu kullanamazsın ticket kanalında olman gerekir. Bu bot opensource bir projedir. http://github.com/arpelo`);
+if (message.content.toLowerCase().startsWith(prefix + `close`)) {
+    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
 
-    message.channel.send(`Destek Kanalını kapatmaya emin misin? kapatmak için **-kapat** yazman yeterli. Bu bot opensource bir projedir. http://github.com/arpelo`)
+    message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`-confirm\`. This will time out in 10 seconds and be cancelled.`)
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-kapat.Bu bot opensource bir projedir. http://github.com/arpelo', {
+      message.channel.awaitMessages(response => response.content === '-confirm', {
         max: 1,
         time: 10000,
         errors: ['time'],
@@ -94,17 +81,13 @@ if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
           message.channel.delete();
         })
         .catch(() => {
-          m.edit('Ticket Kapatma isteğin zaman aşımına uğradı.').then(m2 => {
+          m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
               m2.delete();
           }, 3000);
         });
     });
 }
 
-/*
-http://github.com/arpelo
-*/
-
 });
 
-client.login(token);
+client.login(process.ENV.bot_tokeni);
