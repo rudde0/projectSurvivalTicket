@@ -37,9 +37,6 @@ client.on('message', message => {
 	}
 	if (message.content === '-kapat') {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
-		message.channel.delete();
-	if (message.content === '-kapat') {
-		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
 		message.channel.send(`Kanalı silmek istediğine eminsen **-onayla** yaz.`)
 		.then((m) => {
 			message.channel.awaitMessages(response => response.content === '-onayla', {
