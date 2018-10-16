@@ -10,19 +10,20 @@ client.on('ready', () => {
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
 		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-		let role = message.guild.roles.find("name", 501793846355820574);
-		let role2 = message.guild.roles.find("name", "@everyone");
-		c.overwritePermissions(role, {
-			SEND_MESSAGES: true,
-			READ_MESSAGES: true
-		});
-		c.overwritePermissions(role2, {
-			SEND_MESSAGES: false,
-			READ_MESSAGES: false
-		});
-		c.overwritePermissions(message.author, {
-			SEND_MESSAGES: true,
-			READ_MESSAGES: true
+			let role = message.guild.roles.find("name", 501793846355820574);
+			let role2 = message.guild.roles.find("name", "@everyone");
+			c.overwritePermissions(role, {
+				SEND_MESSAGES: true,
+				READ_MESSAGES: true
+			});
+			c.overwritePermissions(role2, {
+				SEND_MESSAGES: false,
+				READ_MESSAGES: false
+			});
+			c.overwritePermissions(message.author, {
+				SEND_MESSAGES: true,
+				READ_MESSAGES: true
+			});
 		});
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
