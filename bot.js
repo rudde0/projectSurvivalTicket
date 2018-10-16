@@ -3,8 +3,8 @@ const client = new Discord.Client();
 const OzelUyelik = new Set();
 
 client.on('ready', () => {
-	console.log('Köpüş bot, etkinleştirildi!')
-	client.user.setPresence({ game: { name: 'discord.me/kopus', type: 0 } });
+	console.log('ProjectSurvival ticket bot, aktif!')
+	client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
 });
 
 function makeChannel(message){
