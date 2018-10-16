@@ -106,4 +106,4 @@ http://github.com/arpelo
 
 });
 
-client.login(process.env.bottokeni);
+client.login(process.env.bot_tokeni);
