@@ -36,6 +36,24 @@ client.on('message', message => {
 	if (message.content === '-kapat') {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
 		message.channel.delete();
+	if (message.content === '-kapat') {
+		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
+		message.channel.send(`Kanalı silmek istediğine eminsen **-onayla** yaz.`)
+		.then((m) => {
+			message.channel.awaitMessages(response => response.content === '-onayla', {
+				max: 1,
+				time: 10000,
+				errors: ['time'],
+			})
+			.then((collected) => {
+				message.channel.delete();
+			})
+			.catch(() => {
+				m.edit('Kapatma onayının süresi doldu.').then(m2 => {
+					m2.delete();
+				}, 3000);
+			})
+		});
 	}
 });
 
