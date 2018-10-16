@@ -7,13 +7,10 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'discord.me/kopus', type: 0 } });
 });
 
-const bot = new Discord.Client();
-
 function makeChannel(message){
     var server = message.guild;
-    var name = message.author.username;
 
-    server.createChannel(name, "test");
+    server.createChannel(message.author.username, "test");
 }
 
 client.on('message', message => {
