@@ -31,7 +31,7 @@ client.on("message", (message) => {
   }
 
   if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
-    message.channel.send(`İŞTE GELİYOR!`).then(m => {
+    message.channel.send(`Hesaplama yapılıyor...`).then(m => {
     m.edit(`:ping_pong: API zamanlaması, ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
     });
 }
