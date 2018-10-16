@@ -7,12 +7,6 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
 });
 
-function makeChannel(message){
-    var server = message.guild;
-
-    server.createChannel(message.author.username, "test");
-}
-
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
 		var embed = new Discord.RichEmbed()
@@ -22,7 +16,6 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
-		makeChannel("başarılı");
 	}
 });
 
