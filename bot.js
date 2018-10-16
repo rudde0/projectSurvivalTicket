@@ -6,7 +6,7 @@ const prefix = "-";
 
 // Startup console message
 client.on("ready", () => {
-    client.user.setActivity("projectsurvivalmc.com | -yardim");
+    client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
 });
 
