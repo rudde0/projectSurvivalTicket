@@ -8,7 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (message.content === '-new' || message.content === '-oluştur' || message.content === -'olustur') {
+	if (message.content === '-new' || message.content === '-oluştur' || message.content === '-olustur') {
 		if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
