@@ -14,7 +14,7 @@ function clean(text) {
 var prefix = "-";
 
 client.on("ready", () => {
-	console.log('Köpüş bot, etkinleştirildi!')
+	console.log('ProjectSurvival ticketbot, etkinleştirildi!')
 	client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
 });
 
@@ -23,11 +23,10 @@ client.on("message", (message) => {
 
   if (message.content.toLowerCase().startsWith(prefix + `yardım`)) {
     const embed = new Discord.RichEmbed()
-    .setTitle(`:mailbox_with_mail: xBOT Ticket System`)
+    .setTitle(`:mailbox_with_mail: Ticket Sistemi`)
     .setColor(0xCF40FA)
-    .setDescription(`Selam! Ben github.com/arpelo'un hazırlamış olduğu bir botum, sana yardımcı olmak için buradayım.`)
-    .addField(`Tickets`, `[${prefix}ticketaç]() > Destek Bildirimi Oluşturur!\n[${prefix}ticketkapat]() > Ticket kapatır!`)
-    .addField(`Diğer`, `[${prefix}yardım]() > yardım menüsünü gösterir.\n[${prefix}ping]() > Discord API ping değerini gösterir.`)
+    .setDescription(`Hata bildirimleri, oyuncu şikayetleri için burayı kullanabilirsin.`)
+    .addField(`Tickets`, `[${prefix}ticketaç]() > Destek bildirimi açar.\n[${prefix}ticketkapat]() > Açılan desteği kapatır.`)
     message.channel.send({ embed: embed });
   }
 
