@@ -1,260 +1,110 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-const OzelUyelik = new Set();
+/*
+http://github.com/arpelo
+*/
 
-client.on('ready', () => {
-	console.log('Köpüş bot, etkinleştirildi!')
-	client.user.setPresence({ game: { name: 'discord.me/kopus', type: 0 } });
+function clean(text) {
+    if (typeof(text) === "string")
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+        return text;
+}
+
+var prefix = "!";
+var token = "Token Buraya";
+
+client.on("ready", () => {
+  console.log("Bu bot opensource bir projedir. http://github.com/arpelo");
+  console.log("Bot Giriş Yaptı Şu Kadar Sunucuya Hizmet veriyorum:" + client.guilds.size);
+  client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
 });
 
-client.on('message', message => {
-	if (message.content === 'komutlar') {
-		message.channel.send(`Sunucumuzda kullanabildiğin komutları aşağıda listeledik! :upside_down:\n\n**»** Arkadaşınla ortak video izleyebilmek için: __http://bit.ly/kopusw2gether__\n\n**»** Sunucu anlık davet bağlantısı: __http://bit.ly/kopusDC__\n\n**»** Müzik botunu kanalına çağırmak için (**VIP** üstü kullanabilir):\n__play -müzik bağlantısı veya isim-__\nDurdurmak için ise __stop__\n\n**»** Oynadığın oyunla ilgili sohbet kanalına erişim için sohbete şunu yazabilirsin:\n__lol__, __cs__, __pubg__, __minecraft__, __diğer__, __mcsurvival__\n\n**»** Sıkça sorulan sorulara bakmak için sohbete __sss__ yazabilirsin.`);
-	}
-	if (message.content === 'sss') {
-		message.channel.send(`**S:** Köpüşlerin olayı nedir, nasıl olunur?\nBurası arkadaş topluluğudur. Köpüş grubundakiler ise bu topluluktaki herkesle iletişimi olmuş, Köpüş grubuna bir şeyler katmış insanlardan oluşmaktadır. Köpüş olmak için herhangi bir şart belirlemedik. Burada uzun süre vakit geçirdikten sonra kendini Köpüşlerin arasında görebilirsin.\n\n**S:** Köpüşlerdeki yıldızlar/aylar neyi ifade ediyor?\nAy simgesi(**☾**) o kişinin bazı sebeplerden ötürü sunucuya bir süre bakmayacağı anlamına geliyor.\nHer bir **★**, o kişinin en az iki yıldır Köpüş grubunda bulunmuş olduğunu gösteriyor. Örneğin 2 yıldızı olan bir Köpüş üyesi, 4 senedir bu topluluğun içinde anlamına gelmekte, **☆** ise her bir yılı ifade ediyor. Örneğin, bir yıldır kişi, Köpüş grubundaysa **☆** ifadesi kazanır.\nÖrneğin, **Asof** aramıza 2015 yılında katıldığı için **★☆** (3 yıl) yıldızlarına sahip.\n\n**S**: VIP nasıl olurum?\nVIP için herhangi bir ücret veya başka bir şey talep etmiyoruz. VIP olmak istiyorsan sohbete __vip__ yazman yeterli. Herhangi bir kural ihlalinde VIP yetkin elinden alınır ve tekrar VIP yetkisine erişemezsin.`);
-	}
-	if (message.content === 'dsa') {
-		if(message.member.roles.has(`407204500018036737`)) {
-			message.delete(120);
-			var embed = new Discord.RichEmbed()
-			.setColor('#00FF00')
-			.setTimestamp()
-			.setAuthor("Köpüş Bot", message.guild.iconURL)
-			.setThumbnail(message.guild.iconURL)
-			.addField("Yeni Sunucu!", "Yakın gelecekte açılacak olan **PROJECT: SURVIVAL** Minecraft sunucumuzun kategorisine erişmek için sohbete şunu yazabilirsin:\n\n**mcsurvival**")
-			message.channel.send({embed: embed});
-		}
-	}
-	if (message.content === 'ikimesajbirlestirkopusbot') {
-		if(message.member.roles.has(`407204500018036737`)) {
-			message.delete(120);
-			message.channel.send(`Sunucumuzda kullanabildiğin komutları aşağıda listeledik! :upside_down:\n\n**»** Arkadaşınla ortak video izleyebilmek için: __http://bit.ly/kopusw2gether__\n\n**»** Sunucu anlık davet bağlantısı: __http://bit.ly/kopusDC__\n\n**»** Müzik botunu kanalına çağırmak için (**VIP** üstü kullanabilir):\n__play -müzik bağlantısı veya isim-__\nDurdurmak için ise __stop__\n\n**»** Oynadığın oyunla ilgili sohbet kanalına erişim için sohbete şunu yazabilirsin:\n__lol__, __cs__, __pubg__, __minecraft__, __diğer__, __mcsurvival__\n\n**»** Sıkça sorulan sorulara bakmak için sohbete __sss__ yazabilirsin.\n\n**S:** Köpüşlerin olayı nedir, nasıl olunur?\nBurası arkadaş topluluğudur. Köpüş grubundakiler ise bu topluluktaki herkesle iletişimi olmuş, Köpüş grubuna bir şeyler katmış insanlardan oluşmaktadır. Köpüş olmak için herhangi bir şart belirlemedik. Burada uzun süre vakit geçirdikten sonra kendini Köpüşlerin arasında görebilirsin.\n\n**S:** Köpüşlerdeki yıldızlar/aylar neyi ifade ediyor?\nAy simgesi(**☾**) o kişinin bazı sebeplerden ötürü sunucuya bir süre bakmayacağı anlamına geliyor.\nHer bir **★**, o kişinin en az iki yıldır Köpüş grubunda bulunmuş olduğunu gösteriyor. Örneğin 2 yıldızı olan bir Köpüş üyesi, 4 senedir bu topluluğun içinde anlamına gelmekte, **☆** ise her bir yılı ifade ediyor. Örneğin, bir yıldır kişi, Köpüş grubundaysa **☆** ifadesi kazanır.\nÖrneğin, **Asof** aramıza 2015 yılında katıldığı için **★☆** (3 yıl) yıldızlarına sahip.\n\n**S**: VIP nasıl olurum?\nVIP için herhangi bir ücret veya başka bir şey talep etmiyoruz. VIP olmak istiyorsan sohbete __vip__ yazman yeterli. Herhangi bir kural ihlalinde VIP yetkin elinden alınır ve tekrar VIP yetkisine erişemezsin.`);
-		} else {
-			message.delete(120);
-			var embed = new Discord.RichEmbed()
-			.setColor('#EB0C0C')
-			.setTimestamp()
-			.setAuthor(message.author.username, message.author.avatarURL)
-			.setThumbnail(message.guild.iconURL)
-			.addField("Bir hata meydana geldi", "Sunucuda kullanmaya çalıştığın komuta maalesef sadece Topluluk Yöneticileri erişebiliyor.")
-			message.author.send({embed: embed});
-		}
-	}
-	if (message.content === 'köpüş') {
-		if (message.channel.id === `428540697419972609`) {
-			message.member.removeRole(`428536643042017284`);
-			message.react("✅");
-			message.delete(120);
-			//message.author.send('Köpüş sunucusunun topluluk kurallarını kabul ettiğin için teşekkür ederiz.\nArtık sunucudaki diğer sesli odalara ve metin kanallarına erişebilirsin.\n\nSık Kullanılan Bağlantılar:\n\n**»** Arkadaşınla ortak video izleyebilmek için: __http://bit.ly/kopusw2gether__\n\n**»** Sunucu anlık davet bağlantısı: __http://bit.ly/kopusDC__\n\n**»** Müzik botunu kanalına çağırmak için:\n\n__play -müzik bağlantısı veya isim-__\n__c -seçenek-__')
-			var embed = new Discord.RichEmbed()
-			.setColor('#f8f808')
-			.setTimestamp()
-			.setAuthor(message.author.username, message.author.avatarURL)
-			.setThumbnail(message.guild.iconURL)
-			.addField("Katıldığın için teşekkür ederiz!", "Köpüş sunucusunun topluluk kurallarını kabul ettiğin için teşekkür ederiz. Artık sunucudaki diğer sesli odalara ve metin kanallarına erişebilirsin.\n⠀")
-			//.addField("⠀")
-			.addField("Sık kullanılan bağlantılar", "**»** Arkadaşınla ortak video izleyebilmek için: __http://bit.ly/kopusw2gether__\n**»** Sunucu anlık davet bağlantısı:\n__http://bit.ly/kopusDC__\n**»** Müzik botunu kanalına çağırmak için:\n__play -müzik bağlantısı veya isim-__\n__c -seçenek-__\n**»** Oynadığın oyunla ilgili sohbet kanalına erişim için sohbete şunu yazabilirsin:\n__lol__, __cs__, __pubg__, __minecraft__, __diğer__, __mcsurvival__")
-			message.author.send({embed: embed});
-		}
-	}
-	if (message.content === 'lol') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`453186864422191149`)) {
-				message.member.removeRole(`453186864422191149`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#f8f808')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **lol_odası** kanalını göremeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **lol** yazmanız gerekli.")
-				message.author.send({embed: embed});
-			} else {
-				message.member.addRole(`453186864422191149`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00ff00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **lol_odası** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **lol** yazmanız gerekli.")
-				message.channel.send({embed: embed});
-			}
-		}
-	}
-	if (message.content === 'pubg') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`453190356956348416`)) {
-				message.member.removeRole(`453190356956348416`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **pubg_odası** kanalına erişemeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **pubg** yazmanız gerekli.")
-				message.channel.send({embed: embed});
-			} else {
-				message.member.addRole(`453190356956348416`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00FF00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **pubg_odası** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **pubg** yazmanız gerekli.")
-				message.channel.send({embed: embed});
-			}
-		}
-	}
-	if (message.content === 'cs') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`453190327252287499`)) {
-				message.member.removeRole(`453190327252287499`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **cs_odası** kanalına erişemeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **cs** yazmanız gerekli.")
-				message.channel.send({embed: embed});
-			} else {
-				message.member.addRole(`453190327252287499`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00FF00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **cs_odası** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **cs** yazmanız gerekli.")
-				message.channel.send({embed: embed});			
-			}
-		}
-	}
-	if (message.content === 'minecraft') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`472068451658235925`)) {
-				message.member.removeRole(`472068451658235925`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **minecraft** kanalına erişemeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **minecraft** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			} else {
-				message.member.addRole(`472068451658235925`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00FF00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **minecraft** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **minecraft** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			}
-		}
-	}
-	if (message.content === 'mcsurvival') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`479278570095640580`)) {
-				message.member.removeRole(`479278570095640580`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **mcsurvival** kanalına erişemeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **minecraft** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			} else {
-				message.member.addRole(`479278570095640580`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00FF00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **mcsurvival** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **minecraft** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			}
-		}
-	}
-	if (message.content === 'diğer') {
-		if (message.channel.id === `456256245569945620`) {
-			if(message.member.roles.has(`453935578824835103`)) {
-				message.member.removeRole(`453935578824835103`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **oyun_diğer** kanalına erişemeyeceksin. Görebilmek için tekrar **bot_kanalları** odasına **diğer** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			} else {
-				message.member.addRole(`453935578824835103`);
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#00FF00')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesi", "Artık **oyun_diğer** kanalına erişebilirsin. Eğer kanalı görmek istemezsen tekrar **bot_kanalları** odasına **diğer** yazmanız gerekli.")
-				message.channel.send({embed: embed});	
-			}
-		}
-	}
-	
-	if (message.content === process.env.Gizli_Komut) {
-		if(message.member.roles.has(`428536643042017284`)) {
-		   	message.delete(120);
-			OzelUyelik.delete(message.author.id);
-		}
-	}
-	
-	if (message.content === 'vip') {
-		if (message.channel.id === `456256245569945620`) {
-			if(!message.member.roles.has(`415940226519793676`)) {
-				if (!OzelUyelik.has(message.author.id)) {
-					OzelUyelik.add(message.author.id);
-					message.member.addRole(`415940226519793676`);
-					//message.delete(120);
-					var embed = new Discord.RichEmbed()
-					.setColor('#00FF00')
-					.setTimestamp()
-					.setAuthor(message.author.username, message.author.avatarURL)
-					.setThumbnail(message.guild.iconURL)
-					.addField("Yetki Güncellemesi", "Tebrikler!\nArtık sen de bu topluluğun bir özel üyesisin.")
-					message.channel.send({embed: embed});
-				} else {
-					//message.delete(120);
-					var embed = new Discord.RichEmbed()
-					.setColor('#EC0C0C')
-					.setTimestamp()
-					.setAuthor(message.author.username, message.author.avatarURL)
-					.setThumbnail(message.guild.iconURL)
-					.addField("Yetki Güncellemesinde Hata", "Daha önceden bu komutla VIP olduğun için bu komutu kullanma hakkın kalmadı.")
-					message.channel.send({embed: embed});
-				}
-			} else {
-				//message.delete(120);
-				var embed = new Discord.RichEmbed()
-				.setColor('#EC0C0C')
-				.setTimestamp()
-				.setAuthor(message.author.username, message.author.avatarURL)
-				.setThumbnail(message.guild.iconURL)
-				.addField("Yetki Güncellemesinde Hata", "Halihazırda bir Özel Üyeliğe sahip olduğun için bu komutu kullanamazsın.")
-				message.channel.send({embed: embed});
-			}
-		}
-	}
-});
-client.on('guildMemberAdd', async member => {
-        member.addRole(`428536643042017284`);
+client.on("guildCreate", (guild) => {
+client.user.setGame(`github.com/arpelo | ${prefix}yardım`);
+    guild.owner.user.send(`Selam bu bot opensource bir projedir. http://github.com/arpelo`);
 });
 
-client.login(process.env.BOT_TOKEN);
+/*
+http://github.com/arpelo
+*/
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  if (message.content.toLowerCase().startsWith(prefix + `yardım`)) {
+    const embed = new Discord.RichEmbed()
+    .setTitle(`:mailbox_with_mail: xBOT Ticket System`)
+    .setColor(0xCF40FA)
+    .setDescription(`Selam! Ben github.com/arpelo'un hazırlamış olduğu bir botum, sana yardımcı olmak için buradayım.`)
+    .addField(`Tickets`, `[${prefix}ticketaç]() > Destek Bildirimi Oluşturur!\n[${prefix}ticketkapat]() > Ticket kapatır!`)
+    .addField(`Diğer`, `[${prefix}yardım]() > yardım menüsünü gösterir.\n[${prefix}ping]() > Discord API ping değerini gösterir.`)
+    message.channel.send({ embed: embed });
+  }
+
+  if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
+    message.channel.send(`İŞTE GELİYOR!`).then(m => {
+    m.edit(`:ping_pong: Wow, Bu çok hızlı oldu dostum. **Pong!**\nMesaj Editleme zamanım ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API pingim ` + Math.round(client.ping) + `ms.`);
+    });
+}
+
+/*
+http://github.com/arpelo
+*/
+
+if (message.content.toLowerCase().startsWith(prefix + `ticketaç`)) {
+    const reason = message.content.split(" ").slice(1).join(" ");
+    if (!message.guild.roles.exists("name", "Destek Ekibi")) return message.channel.send(`Bu Sunucuda '**Destek Ekibi**' rolünü bulamadım bu yüzden ticket açamıyorum \nEğer sunucu sahibisen, Destek Ekibi Rolünü oluşturabilirsin.`);
+    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Zaten açık durumda bir ticketin var.`);
+    message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
+        let role = message.guild.roles.find("name", "Destek Ekibi");
+        let role2 = message.guild.roles.find("name", "@everyone");
+        c.overwritePermissions(role, {
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
+        });
+        c.overwritePermissions(role2, {
+            SEND_MESSAGES: false,
+            READ_MESSAGES: false
+        });
+        c.overwritePermissions(message.author, {
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
+        });
+        message.channel.send(`:white_check_mark: Ticket Kanalın oluşturuldu, #${c.name}.`);
+        const embed = new Discord.RichEmbed()
+        .setColor(0xCF40FA)
+        .addField(`Hey ${message.author.username}!`, `Selam Başarılı bir Şekilde Ticket Açıldı, Bu bot opensource bir projedir. http://github.com/arpelo`)
+        .setTimestamp();
+        c.send({ embed: embed });
+        message.delete();
+    }).catch(console.error);
+}
+if (message.content.toLowerCase().startsWith(prefix + `ticketkapat`)) {
+    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Bu komutu kullanamazsın ticket kanalında olman gerekir. Bu bot opensource bir projedir. http://github.com/arpelo`);
+
+    message.channel.send(`Destek Kanalını kapatmaya emin misin? kapatmak için **-kapat** yazman yeterli. Bu bot opensource bir projedir. http://github.com/arpelo`)
+    .then((m) => {
+      message.channel.awaitMessages(response => response.content === '-kapat.Bu bot opensource bir projedir. http://github.com/arpelo', {
+        max: 1,
+        time: 10000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+          message.channel.delete();
+        })
+        .catch(() => {
+          m.edit('Ticket Kapatma isteğin zaman aşımına uğradı.').then(m2 => {
+              m2.delete();
+          }, 3000);
+        });
+    });
+}
+
+/*
+http://github.com/arpelo
+*/
+
+});
+
+client.login("Rwy6VeAcIDYSatr4cC5KmSA4qu83_hsn");
