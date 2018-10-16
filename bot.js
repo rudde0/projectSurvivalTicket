@@ -30,8 +30,15 @@ client.on('message', message => {
 		.setTimestamp()
 		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
 		.setThumbnail(message.guild.iconURL)
-		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
+		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark: (#${c.name})")
 		message.channel.send({embed: embed});
+		message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
+		.setColor(0xCF40FA)
+		.addField("Ticket odası", "Ticket odasına hoş geldin. Sorununu burada belirt, yetkililer müsait olunca yardımcı olacaklardır.")
+		.setTimestamp();
+		c.send({
+			embed: embed
+		});
 	}
 });
 
