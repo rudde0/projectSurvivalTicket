@@ -33,6 +33,8 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
+		delete embed;
+		var embed = new Discord.RichEmbed()
 		.setColor('#00ff00')
 		.setTimestamp()
 		.setAuthor(message.author.username, message.author.avatarURL)
