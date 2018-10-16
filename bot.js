@@ -41,17 +41,16 @@ client.on('message', message => {
 				max: 1,
 				time: 10000,
 				errors: ['time'],
-		})
-		.then((collected) => {
-			message.channel.delete();
-		})
-		.catch(() => {
-			m.edit('Kapatma onayının süresi doldu.').then(m2 => {
-				m2.delete();
+			})
+			.then((collected) => {
+				message.channel.delete();
+			})
+			.catch(() => {
+				m.edit('Kapatma onayının süresi doldu.').then(m2 => {
+					m2.delete();
 				}, 3000);
+			})
 		});
-		});
-		}
 	}
 });
 
