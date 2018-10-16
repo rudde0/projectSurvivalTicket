@@ -35,7 +35,7 @@ client.on('message', message => {
 		message.channel.send({embed: embed});
 		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
 	}
-	if (message.content === '-yardım' || message.content === '-yardim'') {
+	if (message.content === '-yardım' || message.content === '-yardim') {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.setTimestamp()
