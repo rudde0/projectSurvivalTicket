@@ -22,7 +22,7 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
-        makeChannel("başarılı");
+		makeChannel("başarılı");
 	}
 });
 
