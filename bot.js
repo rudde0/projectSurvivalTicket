@@ -7,8 +7,16 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
 });
 
+function clean(text) {
+    if (typeof(text) === "string")
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+        return text;
+}
+
 client.on('message', message => {
-	if (message.content === '-new' || message.content === '-oluştur' || message.content === '-olustur') {
+	if (message.content.toLowerCase().startsWith(`-oluştur`) || message.content.toLowerCase().startsWith(`-olustur`) || message.content.toLowerCase().startsWith(`-new`)) {
+		const reason = message.content.split(" ").slice(1).join(" ");
 		if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
@@ -33,7 +41,7 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
-		c.send({embed: {
+		message.channel.send({embed: {
 			color: 3447003,
 			author: {
 				name: client.user.username,
