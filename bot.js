@@ -9,8 +9,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	if (message.content === '-new' || message.content === '-oluştur' || message.content === '-olustur') {
-		if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
-		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
+		if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
+		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			c.overwritePermissions(role, {
@@ -33,8 +33,7 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
-		message.author.send("Ticket kanalınız en üst kategoride oluşturuldu. Lütfen bu kanala girip sorununuzu belirtiniz.");
-		message.channel.send({embed: {
+		c.send({embed: {
 			color: 3447003,
 			author: {
 				name: client.user.username,
