@@ -33,6 +33,31 @@ client.on('message', message => {
 				SEND_MESSAGES: true,
 				READ_MESSAGES: true
 			});
+			c.send({embed: {
+				color: 3447003,
+				author: {
+					name: client.user.username,
+					icon_url: client.user.avatarURL
+				},
+				title: "Ticket oluşturuldu!",
+				url: "http://www.projectsurvivalmc.com",
+				description: "Ticket odasını oluşturdunuz.",
+				fields: [{
+					name: "Bilgi",
+					value: "Bu kanalda sorununuzla ilgili bilgi veriniz."
+				},
+				{
+					name: "Uyarı",
+					value: "Yetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır."
+				}
+				],
+				timestamp: new Date(),
+				footer: {
+					icon_url: client.user.avatarURL,
+					text: "© ProjectSurvival"
+				}
+			}
+			});
 		});
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
@@ -41,33 +66,8 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun, lütfen yetkilileri etiketleme! :white_check_mark:")
 		message.channel.send({embed: embed});
-		message.channel.send({embed: {
-			color: 3447003,
-			author: {
-				name: client.user.username,
-				icon_url: client.user.avatarURL
-			},
-			title: "Ticket oluşturuldu!",
-			url: "http://www.projectsurvivalmc.com",
-			description: "Ticket odasını oluşturdunuz.",
-			fields: [{
-				name: "Bilgi",
-				value: "Bu kanalda sorununuzla ilgili bilgi veriniz."
-			},
-			{
-				name: "Uyarı",
-				value: "Yetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır."
-			}
-			],
-			timestamp: new Date(),
-			footer: {
-				icon_url: client.user.avatarURL,
-				text: "© ProjectSurvival"
-			}
-		}
-		});
 	}
-	if (message.content === '-yardım' || message.content === '-yardim') {
+	if (message.content.toLowerCase().startsWith(`-yardım`) || message.content.toLowerCase().startsWith(`-yardim`) || message.content.toLowerCase().startsWith(`-help`)) {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.setTimestamp()
@@ -87,7 +87,7 @@ client.on('message', message => {
 		.addField("İstemci", "1.12.2 ile giriş yapılır.\nAynı zamanda Forge 1.12.2 ile de girebilirsiniz.")
 		message.channel.send({embed: embed});
 	}
-	if (message.content === '-kapat') {
+	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
 		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
 		message.channel.send(`Kanalı silmek istediğine eminsen **-onayla** yaz.`)
 		.then((m) => {
