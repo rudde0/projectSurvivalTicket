@@ -1,1 +1,1 @@
-# Thanks to Vulnix for ticketbot
+ruddeTR tarafından ProjectSurvival projesi için kodlanılmış Discord Botu.
