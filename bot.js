@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const OzelUyelik = new Set();
 
 client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
