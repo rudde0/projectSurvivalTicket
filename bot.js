@@ -48,6 +48,7 @@ client.on('message', message => {
 						value: "${reason}"
 					}
 					],
+				}
 				timestamp: new Date(),
 				footer: {
 					icon_url: client.user.avatarURL,
