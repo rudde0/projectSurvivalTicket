@@ -38,7 +38,7 @@ client.on('message', message => {
 					name: client.user.username,
 					icon_url: client.user.avatarURL
 				},
-				title: `Ticket oluşturuldu! (<@${message.author.username}>)`,
+				title: `Ticket oluşturuldu!`,
 				url: "http://www.projectsurvivalmc.com",
 				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.",
 				timestamp: new Date(),
