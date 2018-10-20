@@ -84,6 +84,7 @@ client.on('message', message => {
 		.setThumbnail(message.guild.iconURL)
 		.addField("Kullanılabilir IP adresleri", "oyna.ProjectSurvivalMC.com\nplay.ProjectSurvivalMC.com")
 		.addField("İstemci", "1.12.2 ile giriş yapılır.\nAynı zamanda Forge 1.12.2 ile de girebilirsiniz.")
+		.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
