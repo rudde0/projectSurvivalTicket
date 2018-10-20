@@ -40,16 +40,14 @@ client.on('message', message => {
 				},
 				title: `Ticket oluşturuldu! (<@${message.author.username}>)`,
 				url: "http://www.projectsurvivalmc.com",
-				description: "Ticket odasını oluşturdunuz.",
-				fields: [{
-					name: "Bilgi",
-					value: "Bu kanalda sorununuzla ilgili bilgi veriniz."
-				},
-				{
-					name: "Uyarı",
-					value: "Yetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır."
-				}
-				],
+				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.",
+				if (reason) {
+					fields: [
+					{
+						name: "Detay",
+						value: "${reason}"
+					}
+					],
 				timestamp: new Date(),
 				footer: {
 					icon_url: client.user.avatarURL,
