@@ -79,11 +79,7 @@ client.on('message', message => {
 	if (message.content === '-ip') {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
-		.setTimestamp()
-		.setAuthor("Sunucu IP", message.guild.iconURL)
-		.setThumbnail(message.guild.iconURL)
-		.addField("Kullanılabilir IP adresleri", "oyna.ProjectSurvivalMC.com\nplay.ProjectSurvivalMC.com")
-		.addField("İstemci", "1.12.2 ile giriş yapılır.\nAynı zamanda Forge 1.12.2 ile de girebilirsiniz.")
+		.addField("Kullanılabilir IP adresleri", "oyna.ProjectSurvivalMC.com\nplay.ProjectSurvivalMC.com\n")
 		.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
 		message.channel.send({embed: embed});
 	}
