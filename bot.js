@@ -38,7 +38,7 @@ client.on('message', message => {
 					name: client.user.username,
 					icon_url: client.user.avatarURL
 				},
-				title: `Ticket oluşturuldu!`,
+				title: `Ticket oluşturuldu! (@${message.author.username})`,
 				url: "http://www.projectsurvivalmc.com",
 				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.",
 				timestamp: new Date(),
@@ -72,7 +72,7 @@ client.on('message', message => {
 		.setColor('#00FF00')
 		.addField("Kullanılabilir IP adresleri", "oyna.ProjectSurvivalMC.com\nplay.ProjectSurvivalMC.com\n")
 		//.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
-		.setImage(`https://minecraft-mp.com/banner-206763-5.png`)
+		.setImage(`https://minecraft-mp.com/banner-206763-2.png`)
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
