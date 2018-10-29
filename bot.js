@@ -72,7 +72,7 @@ client.on('message', message => {
 		.setColor('#00FF00')
 		.addField("Kullanılabilir IP adresleri", "oyna.ProjectSurvivalMC.com\nplay.ProjectSurvivalMC.com\n")
 		//.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
-		.setImage(`https://minecraft-mp.com/banner-206763-2.png`)
+		.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
