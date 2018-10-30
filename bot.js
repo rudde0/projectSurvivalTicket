@@ -22,15 +22,18 @@ client.on('message', message => {
 			let role2 = message.guild.roles.find("name", "@everyone");
 			c.overwritePermissions(role, {
 				SEND_MESSAGES: true,
-				READ_MESSAGES: true
+				READ_MESSAGES: true,
+				ATTACH_FILES: true
 			});
 			c.overwritePermissions(role2, {
 				SEND_MESSAGES: false,
-				READ_MESSAGES: false
+				READ_MESSAGES: false,
+				ATTACH_FILES: true
 			});
 			c.overwritePermissions(message.author, {
 				SEND_MESSAGES: true,
-				READ_MESSAGES: true
+				READ_MESSAGES: true,
+				ATTACH_FILES: true
 			});
 			c.send({embed: {
 				color: 3447003,
