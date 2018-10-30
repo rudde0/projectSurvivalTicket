@@ -16,8 +16,8 @@ function clean(text) {
 client.on('message', message => {
 	if (message.content.toLowerCase().startsWith(`-oluştur`) || message.content.toLowerCase().startsWith(`-olustur`) || message.content.toLowerCase().startsWith(`-new`)) {
 		const reason = message.content.split(" ").slice(1).join(" ");
-		if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
-		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+		if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
+		message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			c.overwritePermissions(role, {
