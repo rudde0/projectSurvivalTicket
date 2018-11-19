@@ -56,7 +56,7 @@ client.on('message', message => {
 		.setColor('#00FF00')
 		.setTimestamp()
 		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
-		.setThumbnail(message.guild.iconURL)
+		//.setThumbnail(message.guild.iconURL)
 		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun! :white_check_mark:")
 		message.channel.send({embed: embed});
 	}
