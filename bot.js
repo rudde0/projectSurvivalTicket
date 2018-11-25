@@ -55,9 +55,9 @@ client.on('message', message => {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.setTimestamp()
-		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
+		//.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
 		//.setThumbnail(message.guild.iconURL)
-		.addField("Ticket oluşturuldu", "Başarıyla ticket oluşturdun! :white_check_mark:")
+		.addField("Destek talebin alındı:", "Senin adına en üst metin kanalında destek kanalı oluşturuldu.\nKanalı açıp sorunu bizimle paylaşabilirsin.")
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-yardım`) || message.content.toLowerCase().startsWith(`-yardim`) || message.content.toLowerCase().startsWith(`-help`)) {
