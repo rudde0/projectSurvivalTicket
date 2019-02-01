@@ -4,7 +4,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
 	//client.user.setPresence({ game: { name: 'projectsurvivalmc.com | -yardım', type: 0 } });
-	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'available' });
+	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'online' });
 });
 
 function clean(text) {
