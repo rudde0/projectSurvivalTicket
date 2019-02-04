@@ -1,9 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const activities = require('./assets/activity');
 
-client.on('ready', () => {
+/*client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
 	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'online' });
+});*/
+
+client.on('ready', () => {
+	client.logger.info(`${client.user.tag} adıyla bot başlatıldı. Kimlik: ${client.user.id}`);
+	client.setInterval(() => {
+		const activity = activities[Math.floor(Math.random() * activities.length)];
+		client.user.setActivity(activity.text, { type: activity.type });
+	}, 60000);
 });
 
 function clean(text) {
