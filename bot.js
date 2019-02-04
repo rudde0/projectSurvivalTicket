@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const activities = require('./assets/activity');
+const activities = require('./assets/activities');
 
 /*client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
