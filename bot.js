@@ -24,7 +24,8 @@ client.on('message', message => {
 			c.overwritePermissions(role, {
 				SEND_MESSAGES: true,
 				READ_MESSAGES: true,
-				MANAGE_CHANNEL: true,
+				MANAGE_CHANNELS: true,
+				MANAGE_MESSAGES: true,
 				ATTACH_FILES: true
 			});
 			c.overwritePermissions(role2, {
