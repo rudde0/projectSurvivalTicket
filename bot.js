@@ -8,7 +8,7 @@ const activities = require('./assets/activities');
 });*/
 
 client.on('ready', () => {
-	client.logger.info(`${client.user.tag} adıyla bot başlatıldı. Kimlik: ${client.user.id}`);
+	console.log(`${client.user.tag} adıyla bot başlatıldı. Kimlik: ${client.user.id}`);
 	client.setInterval(() => {
 		const activity = activities[Math.floor(Math.random() * activities.length)];
 		client.user.setActivity(activity.text, { type: activity.type });
