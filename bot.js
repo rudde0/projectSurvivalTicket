@@ -11,7 +11,8 @@ client.on('ready', () => {
 	console.log(`${client.user.tag} adıyla bot başlatıldı. Kimlik: ${client.user.id}`);
 	client.setInterval(() => {
 		const activity = activities[Math.floor(Math.random() * activities.length)];
-		client.user.setActivity(activity.text, { type: activity.type });
+		//client.user.setActivity(activity.text, { type: activity.type });
+		client.user.setPresence({ activity: { name: activity.text }, status: activity.type);
 	}, 60000);
 });
 
