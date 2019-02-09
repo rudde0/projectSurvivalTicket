@@ -31,7 +31,15 @@ client.on('message', message => {
 		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
+			let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
 			c.overwritePermissions(role, {
+				SEND_MESSAGES: true,
+				READ_MESSAGES: true,
+				MANAGE_CHANNELS: true,
+				MANAGE_MESSAGES: true,
+				ATTACH_FILES: true
+			});
+			c.overwritePermissions(role3, {
 				SEND_MESSAGES: true,
 				READ_MESSAGES: true,
 				MANAGE_CHANNELS: true,
