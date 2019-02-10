@@ -40,7 +40,7 @@ client.on('message', message => {
 			message.channel.send(`${ar2} kimlikli kişi artık ticket açamayacak.`);
 			userData.ticketbans++;
 		} else if (ar === "çıkar" || ar === "cikar") {
-			message.channel.send(`${ar2} kimlikli kişi tekrar ticket açabilir.);
+			message.channel.send(`${ar2} kimlikli kişi tekrar ticket açabilir.`);
 			userData.ticketbans = 0;
 		}
 	}
