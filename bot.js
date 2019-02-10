@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const activities = require('./assets/activities');
-const fs = require("fs");
+/*const fs = require("fs");
 let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));
 
-/*client.on('ready', () => {
+client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
 	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'online' });
 });*/
@@ -26,7 +26,7 @@ function clean(text) {
 }
 
 client.on('message', message => {
-	if (!ticketbans[message.author.id]) ticketbans[message.author.id] = {
+	/*if (!ticketbans[message.author.id]) ticketbans[message.author.id] = {
 		banlevel: 0
 	};
 	let messageArray = message.content.split(" ");
@@ -44,7 +44,7 @@ client.on('message', message => {
 			message.channel.send(`${ar2} kimlikli kişi tekrar ticket açabilir.`);
 			userData.ticketbans = 0;
 		}
-	}
+	}*/
 	if (message.content.toLowerCase().startsWith(`-destek`) || message.content.toLowerCase().startsWith(`-oluştur`) || message.content.toLowerCase().startsWith(`-olustur`) || message.content.toLowerCase().startsWith(`-new`)) {
 		let userData = banlevel[message.author.id];
 		const reason = message.content.split(" ").slice(1).join(" ");
