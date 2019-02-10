@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const activities = require('./assets/activities');
+const fs = require("fs");
 let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));
 
 /*client.on('ready', () => {
