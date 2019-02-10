@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const activities = require('./assets/activities');
+let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));
 
 /*client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
@@ -24,10 +25,31 @@ function clean(text) {
 }
 
 client.on('message', message => {
+	if (!ticketbans[message.author.id]) ticketbans[message.author.id] = {
+		banlevel: 0
+	};
+	let messageArray = message.content.split(" ");
+	let cmd = messageArray[0];
+	let args = messageArray.slice(1);
+	if (message.content.toLowerCase().startsWith(`-ticketban`)) {
+		if(!message.member.roles.has(`544105208783962114`)) return message.channel.reply(`Bu komutu kullanabilmek için gerekli izniniz yok.`);
+		let ar = args[0];
+		let ar2 = args[1];
+		let userData = ticketbans[ar2];
+		if (ar === "ekle") {
+			message.channel.send(`${ar2} kimlikli kişi artık ticket açamayacak.`);
+			userData.ticketbans++;
+		} else if (ar === "çıkar" || ar === "cikar") {
+			message.channel.send(`${ar2} kimlikli kişi tekrar ticket açabilir.);
+			userData.ticketbans = 0;
+		}
+	}
 	if (message.content.toLowerCase().startsWith(`-destek`) || message.content.toLowerCase().startsWith(`-oluştur`) || message.content.toLowerCase().startsWith(`-olustur`) || message.content.toLowerCase().startsWith(`-new`)) {
+		let userData = banlevel[message.author.id];
 		const reason = message.content.split(" ").slice(1).join(" ");
 		if (!message.channel.name.startsWith(`komut`)) return message.channel.send(`Sistem, sadece komut kanalında çalıştırılabilir.`);
 		if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
+		if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
 		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
