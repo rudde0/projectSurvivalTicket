@@ -124,7 +124,7 @@ client.on('message', message => {
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
-		if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
+		if (!message.channel.name.startsWith(`🎫`)) return message.channel.send(`Ticket kanalı dışında bu komutu kullanamazsın.`);
 		message.channel.send(`Kanalı silmek istediğine eminsen **-onayla** yaz.`)
 		.then((m) => {
 			message.channel.awaitMessages(response => response.content === '-onayla', {
