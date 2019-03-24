@@ -52,7 +52,7 @@ client.on('message', message => {
 		if (message.guild.channels.exists("name", "🎫" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
 		message.guild.createChannel(`🎫${message.author.username}`, "text").then(c => {
-			c.setTopic(`🎫: ${reason}.`);
+			c.setTopic(`Konu: ${reason}`);
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
