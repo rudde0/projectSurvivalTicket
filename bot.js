@@ -49,9 +49,9 @@ client.on('message', message => {
 		//let userData = banlevel[message.author.id];
 		const reason = message.content.split(" ").slice(1).join(" ");
 		if (!message.channel.name.startsWith(`komut`)) return message.channel.send(`Sistem, sadece komut kanalında çalıştırılabilir.`);
-		if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
+		if (message.guild.channels.exists("name", "🎫" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
-		message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+		message.guild.createChannel(`🎫${message.author.username}`, "text").then(c => {
 			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
