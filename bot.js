@@ -86,29 +86,27 @@ client.on('raw', async event => {
 		}
 	}
 	setTimeout(function(){
-		var roleUpdates = message.member.roles.find("name", "🔔 Güncellemeler Kaynağı");
-		var roleAnnouncements = message.member.roles.find("name", "🔔 Duyurular Kaynağı");
-		var roleOther = message.member.roles.find("name", "🔔 Diğer Kaynağı");
-		var headline = message.member.roles.find("name", "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
+		const roleUpdates = message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"); //message.member.roles.find("name", "🔔 Güncellemeler Kaynağı");
+		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular Kaynağı");
+		const roleOther = message.guild.roles.find(r => r.name === "🔔 Diğer Kaynağı");
+		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
 		//var roleAll = message.member.roles.some(r=>["🔔 Güncellemeler Kaynağı", "🔔 Duyurular Kaynağı", "🔔 Diğer Kaynağı"].includes(r.name))
 		if (event.t !== "MESSAGE_REACTION_ADD") {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
 				if(headline) {
-					if(!roleUpdates) {
-						if(!roleAnnouncements) {
-							if(!roleOther) {
-								member.removeRole(`562549906011848714`);
-							}
-						}
+					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
+					if(roleUpdates !== true && roleAnnouncements !== true && roleOther !== true) {
+						member.removeRole(`562549906011848714`);
 					}
 				}
 			}
 		} else {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
-				if(roleUpdates || roleAnnouncements || roleOther) {
-					console.log("Eklicem")
-					if(!headline) {
-						console.log("Eklicem2")
+				console.log("ek1")
+				if(roleUpdates !== false || roleAnnouncements !== false || roleOther !== false) {
+					console.log("ek2")
+					if(headline !== true) {
+						console.log("ek3")
 						member.addRole(`562549906011848714`);
 					}
 				}
