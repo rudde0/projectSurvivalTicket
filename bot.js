@@ -7,7 +7,7 @@ let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));
 client.on('ready', () => {
 	console.log('ProjectSurvival ticket bot, aktif!')
 	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'online' });
-});*/
+});
 
 client.on('ready', () => {
 	console.log(`${client.user.tag} adiyla bot baslatildi. Kimlik: ${client.user.id}`);
@@ -16,6 +16,19 @@ client.on('ready', () => {
 		//client.user.setActivity(activity.text, { type: activity.type });
 		client.user.setPresence({ activity: { name: activity.text }, status: activity.type});
 	}, 60000);
+});*/
+client.on('ready', () => {
+	console.log(`${client.user.tag} adiyla bot baslatildi. Kimlik: ${client.user.id}`);
+	client.setInterval(() => {
+		const activity = activities[Math.floor(Math.random() * activities.length)];
+		client.user.setStatus(activity.type)
+		client.user.setPresence({
+			game: {
+				name: activity.text,
+				type: 0
+			}
+		});
+    }, 60000);
 });
 client.on('error', console.error);
 
