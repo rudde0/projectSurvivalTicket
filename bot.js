@@ -86,22 +86,17 @@ client.on('raw', async event => {
 		}
 	}
 	setTimeout(function(){
-		var roleUpdates = message.member.roles.find("name", "Bildirim Alıyor: 🔧");
-		var roleAnnouncements = message.member.roles.find("name", "Bildirim Alıyor: 📢");
-		var roleOther = message.member.roles.find("name", "Bildirim Alıyor: ❓");
+		var roleUpdates = message.member.roles.find("name", "🔔 Güncellemeler Kaynağı");
+		var roleAnnouncements = message.member.roles.find("name", "🔔 Duyurular Kaynağı");
+		var roleOther = message.member.roles.find("name", "🔔 Diğer Kaynağı");
 		var headline = message.member.roles.find("name", "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
-		var roleAll = message.member.roles.some(r=>["Bildirim Alıyor: 🔧", "Bildirim Alıyor: 📢", "Bildirim Alıyor: ❓"].includes(r.name))
+		//var roleAll = message.member.roles.some(r=>["🔔 Güncellemeler Kaynağı", "🔔 Duyurular Kaynağı", "🔔 Diğer Kaynağı"].includes(r.name))
 		if (event.t !== "MESSAGE_REACTION_ADD") {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
-				console.log('Silmeye geldim');
 				if(headline) {
-					console.log('Silmeye geldim 2');
 					if(!roleUpdates) {
-						console.log('Update yok');
 						if(!roleAnnouncements) {
-							console.log('Duyuru yok');
 							if(!roleOther) {
-								console.log('Silmeye geldim 3');
 								member.removeRole(`562549906011848714`);
 							}
 						}
@@ -240,5 +235,4 @@ client.on('message', message => {
 		});
 	}
 });
-
 client.login(process.env.bot_tokeni);
