@@ -17,6 +17,7 @@ client.on('ready', () => {
 		client.user.setPresence({ activity: { name: activity.text }, status: activity.type});
 	}, 60000);
 });
+client.on('error', console.error);
 
 function clean(text) {
     if (typeof(text) === "string")
@@ -24,6 +25,102 @@ function clean(text) {
     else
         return text;
 }
+
+/*exports.run = async (reaction, user) => {
+	console.log('new reacrion')
+	var role
+	var given
+	var msg = await reaction.message
+	console.log('En azından okundu')
+	if (msg.id == '562542165427879937') {
+		console.log('valid reacrion')
+		if (reaction.emoji.id == '🛠') {
+			role = msg.guild.roles.get('562545238552608768')
+			console.log('new ping reaction')
+			if (user.hasRole(role)) {
+				user.removeRole(role)
+				given = ' You have left @'
+			} else {
+				user.addRole(role)
+				given = ' You have joined @'
+			}
+			user.send(reaction.emoji.toString() + given + role.name + '.')
+		}
+		console.log('new reacrion done')
+	}
+}*/
+
+const events = {
+	MESSAGE_REACTION_ADD: 'messageReactionAdd',
+	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
+};
+
+client.on('raw', async event => {
+	if (!events.hasOwnProperty(event.t)) return;
+	const { d: data } = event;
+	const user = client.users.get(data.user_id);
+	const channel = client.channels.get(data.channel_id);
+	const message = await channel.fetchMessage(data.message_id);
+	const member = message.guild.members.get(user.id);
+	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
+	const reaction = message.reactions.get(emojiKey);
+	if (message.author.id === '212243328245301268' && (message.id === '562542165427879937')) {
+		if (event.t === "MESSAGE_REACTION_ADD") {
+			member.addRole(`562545238552608768`);
+		} else {
+			member.removeRole(`562545238552608768`);
+		}
+	}
+	if (message.author.id === '212243328245301268' && (message.id === '562542250257678347')) {
+		if (event.t === "MESSAGE_REACTION_ADD") {
+			member.addRole(`562549572799561728`);
+		} else {
+			member.removeRole(`562549572799561728`);
+		}
+	}
+	if (message.author.id === '212243328245301268' && (message.id === '562542419975864320')) {
+		if (event.t === "MESSAGE_REACTION_ADD") {
+			member.addRole(`562550876536045569`);
+		} else {
+			member.removeRole(`562550876536045569`);
+		}
+	}
+	setTimeout(function(){
+		var roleUpdates = message.member.roles.find("name", "Bildirim Alıyor: 🔧");
+		var roleAnnouncements = message.member.roles.find("name", "Bildirim Alıyor: 📢");
+		var roleOther = message.member.roles.find("name", "Bildirim Alıyor: ❓");
+		var headline = message.member.roles.find("name", "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
+		var roleAll = message.member.roles.some(r=>["Bildirim Alıyor: 🔧", "Bildirim Alıyor: 📢", "Bildirim Alıyor: ❓"].includes(r.name))
+		if (event.t !== "MESSAGE_REACTION_ADD") {
+			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
+				console.log('Silmeye geldim');
+				if(headline) {
+					console.log('Silmeye geldim 2');
+					if(!roleUpdates) {
+						console.log('Update yok');
+						if(!roleAnnouncements) {
+							console.log('Duyuru yok');
+							if(!roleOther) {
+								console.log('Silmeye geldim 3');
+								member.removeRole(`562549906011848714`);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
+				if(roleUpdates || roleAnnouncements || roleOther) {
+					console.log("Eklicem")
+					if(!headline) {
+						console.log("Eklicem2")
+						member.addRole(`562549906011848714`);
+					}
+				}
+			}
+		}
+	 }, 1000);
+});
 
 client.on('message', message => {
 	/*if (!ticketbans[message.author.id]) ticketbans[message.author.id] = {
