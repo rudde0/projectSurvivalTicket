@@ -1,18 +1,22 @@
 [
 	{
 		"text": "seni",
-		"type": "WATCHING"
+		"type": 3
+	},
+	/*{
+		"text": "dinliyor",
+		"type": 2
+	},*/
+	{
+		"text": "hilecileri",
+		"type": 3
 	},
 	{
-		"text": "bug kullananları",
-		"type": "WATCHING"
-	},
-	{
-		"text": "oyna.projectsurvivalmc.com",
-		"type": "PLAYING"
+		"text": "ProjectSurvival'da",
+		"type": 0
 	},
 	{
 		"text": "herobrine ile",
-		"type": "PLAYING"
+		"type": 0
 	}
 ]
