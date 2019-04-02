@@ -2,33 +2,20 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const activities = require('./assets/activities');
 /*const fs = require("fs");
-let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));
-
-client.on('ready', () => {
-	console.log('ProjectSurvival ticket bot, aktif!')
-	client.user.setPresence({ activity: { name: 'projectsurvivalmc.com | -yardım' }, status: 'online' });
-});
+let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));*/
 
 client.on('ready', () => {
 	console.log(`${client.user.tag} adiyla bot baslatildi. Kimlik: ${client.user.id}`);
 	client.setInterval(() => {
 		const activity = activities[Math.floor(Math.random() * activities.length)];
-		//client.user.setActivity(activity.text, { type: activity.type });
-		client.user.setPresence({ activity: { name: activity.text }, status: activity.type});
-	}, 60000);
-});*/
-client.on('ready', () => {
-	console.log(`${client.user.tag} adiyla bot baslatildi. Kimlik: ${client.user.id}`);
-	client.setInterval(() => {
-		const activity = activities[Math.floor(Math.random() * activities.length)];
-		client.user.setStatus(activity.type)
+		client.user.setStatus('available')
 		client.user.setPresence({
 			game: {
 				name: activity.text,
-				type: 0
+				type: activity.type
 			}
 		});
-    }, 60000);
+    }, 1000);
 });
 client.on('error', console.error);
 
