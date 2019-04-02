@@ -15,7 +15,7 @@ client.on('ready', () => {
 				type: activity.type
 			}
 		});
-    }, 1000);
+    }, 60000);
 });
 client.on('error', console.error);
 
