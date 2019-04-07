@@ -102,11 +102,11 @@ client.on('raw', async event => {
 			}
 		} else {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
-				console.log("ek1")
+				//console.log("ek1")
 				if(roleUpdates !== false || roleAnnouncements !== false || roleOther !== false) {
-					console.log("ek2")
+					//console.log("ek2")
 					if(headline !== true) {
-						console.log("ek3")
+						//console.log("ek3")
 						member.addRole(`562549906011848714`);
 					}
 				}
