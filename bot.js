@@ -143,7 +143,7 @@ client.on('message', message => {
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
 		message.guild.createChannel(`🎫${message.author.username}`, "text").then(c => {
 			c.setTopic(`${reason}`);
-			let role = message.guild.roles.find("name", "Ticket Yetkilisi");
+			let role = message.guild.roles.find("name", "Yetkili: Ticket Yönetimi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
 			c.overwritePermissions(role, {
