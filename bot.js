@@ -64,46 +64,54 @@ client.on('raw', async event => {
 	const member = message.guild.members.get(user.id);
 	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
 	const reaction = message.reactions.get(emojiKey);
-	if (message.author.id === '212243328245301268' && (message.id === '562542165427879937')) {
+	if (message.author.id === '212243328245301268' && (message.id === '562542165427879937')) { //Güncellemeler
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			member.addRole(`562545238552608768`);
 		} else {
 			member.removeRole(`562545238552608768`);
 		}
 	}
-	if (message.author.id === '212243328245301268' && (message.id === '562542250257678347')) {
+	if (message.author.id === '212243328245301268' && (message.id === '562542250257678347')) { //Duyurular
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			member.addRole(`562549572799561728`);
 		} else {
 			member.removeRole(`562549572799561728`);
 		}
 	}
-	if (message.author.id === '212243328245301268' && (message.id === '562542419975864320')) {
+	if (message.author.id === '212243328245301268' && (message.id === '562542419975864320')) { //Diğer
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			member.addRole(`562550876536045569`);
 		} else {
 			member.removeRole(`562550876536045569`);
 		}
 	}
+	if (message.author.id === '212243328245301268' && (message.id === '581472119301341185')) { //Olaylar
+		if (event.t === "MESSAGE_REACTION_ADD") {
+			member.addRole(`581472494607794206`);
+		} else {
+			member.removeRole(`581472494607794206`);
+		}
+	}
 	setTimeout(function(){
 		const roleUpdates = message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"); //message.member.roles.find("name", "🔔 Güncellemeler Kaynağı");
 		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular Kaynağı");
 		const roleOther = message.guild.roles.find(r => r.name === "🔔 Diğer Kaynağı");
+		const roleEvents = message.guild.roles.find(r => r.name === "🔔 Olaylar Kaynağı");
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
 		//var roleAll = message.member.roles.some(r=>["🔔 Güncellemeler Kaynağı", "🔔 Duyurular Kaynağı", "🔔 Diğer Kaynağı"].includes(r.name))
 		if (event.t !== "MESSAGE_REACTION_ADD") {
-			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
+			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
 				if(headline) {
 					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
-					if(roleUpdates !== true && roleAnnouncements !== true && roleOther !== true) {
+					if(roleUpdates !== true && roleAnnouncements !== true && roleOther !== true && roleEvents !== true) {
 						member.removeRole(`562549906011848714`);
 					}
 				}
 			}
 		} else {
-			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320') {
+			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
 				//console.log("ek1")
-				if(roleUpdates !== false || roleAnnouncements !== false || roleOther !== false) {
+				if(roleUpdates !== false || roleAnnouncements !== false || roleOther !== false || roleEvents !== false) {
 					//console.log("ek2")
 					if(headline !== true) {
 						//console.log("ek3")
