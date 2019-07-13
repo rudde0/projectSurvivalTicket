@@ -155,7 +155,7 @@ client.on('message', message => {
 			let role = message.guild.roles.find("name", "Yetkili: Ticket Yönetimi");
 			let role2 = message.guild.roles.find("name", "@everyone");
 			let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
-			let role4 = message.guild.roles.find("name", "Adil Oyun Sağlayıcısı");
+			let role4 = message.guild.roles.find("name", "Yetkili: Adil Oyun Sağlayıcısı");
 			c.overwritePermissions(role, {
 				SEND_MESSAGES: true,
 				READ_MESSAGES: true,
