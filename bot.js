@@ -147,7 +147,7 @@ client.on('message', message => {
 		//let userData = banlevel[message.author.id];
 		const reason = message.content.split(" ").slice(1).join(" ");
 		let allowedRole = message.guild.roles.find("name", "Susturulmuş: Ticket");
-		if (message.author.roles.has(allowedRole.id)) return message.channel.send(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
+		if (message.member.roles.has(allowedRole.id)) return message.channel.send(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
 		if (!message.channel.name.startsWith(`🤖`)) return message.channel.send(`Sistem, sadece komut kanalında çalıştırılabilir.`);
 		if (message.guild.channels.exists("name", "🎫" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
