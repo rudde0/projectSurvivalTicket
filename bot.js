@@ -97,7 +97,7 @@ client.on('raw', async event => {
 		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular Kaynağı");
 		const roleOther = message.guild.roles.find(r => r.name === "🔔 Diğer Kaynağı");
 		const roleEvents = message.guild.roles.find(r => r.name === "🔔 Olaylar Kaynağı");
-		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀SİSTEM ROLLERİ⠀⠀⠀⠀⠀⠀⠀");
+		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
 		//var roleAll = message.member.roles.some(r=>["🔔 Güncellemeler Kaynağı", "🔔 Duyurular Kaynağı", "🔔 Diğer Kaynağı"].includes(r.name))
 		if (event.t !== "MESSAGE_REACTION_ADD") {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
