@@ -1,4 +1,4 @@
 Discord Sunucusu: http://discord.gg/9hxHCTQ
-Website: http://www.ProjectSurvivalMC.com/
+Website: https://survivaltr.com/
 
 © ProjectSurvival 2018.
