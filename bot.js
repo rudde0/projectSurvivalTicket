@@ -68,13 +68,13 @@ client.on('raw', async event => {
 	/* Ortak Duyurular */
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.emoji.name === '📢') {
+			if (reaction.data.emoji.name === '📢') {
 				member.addRole(`562549572799561728`);
 			} else {
 				member.addRole(`562550876536045569`);
 			}
 		} else {
-			if (reaction.emoji.id === '📢') {
+			if (reaction.data.emoji.name === '📢') {
 				member.removeRole(`562549572799561728`);
 			} else {
 				member.removeRole(`562550876536045569`);
@@ -84,13 +84,13 @@ client.on('raw', async event => {
 	/* ProjectSurvival Güncellemeleri */
 	if (message.author.id === '212243328245301268' && (message.id === '618803719949254676')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.emoji.id === '🌊') {
+			if (reaction.data.emoji.name === '🌊') {
 				member.addRole(`618799200532168705`);
 			} else {
 				member.addRole(`618799189236645908`);
 			}
 		} else {
-			if (reaction.emoji.id === '🌊') {
+			if (reaction.data.emoji.name === '🌊') {
 				member.removeRole(`618799200532168705`);
 			} else {
 				member.removeRole(`618799189236645908`);
@@ -100,21 +100,21 @@ client.on('raw', async event => {
 	/* Flaversum Güncellemeleri */
 	if (message.author.id === '212243328245301268' && (message.id === '618803744628539432')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.emoji.id === '👑') {
+			if (reaction.data.emoji.name === '👑') {
 				member.addRole(`605420636923363331`);
-			} else if (reaction.emoji.id === '💎') {
+			} else if (reaction.data.emoji.name === '💎') {
 				member.addRole(`618799206139822131`);
-			} else if (reaction.emoji.id === '☁') {
+			} else if (reaction.data.emoji.name === '☁') {
 				member.addRole(`618799210262822931`);
 			} else {
 				member.addRole(`618799203694673950`);
 			}
 		} else {
-			if (reaction.emoji.id === '👑') {
+			if (reaction.data.emoji.name === '👑') {
 				member.removeRole(`605420636923363331`);
-			} else if (reaction.emoji.id === '💎') {
+			} else if (reaction.data.emoji.name === '💎') {
 				member.removeRole(`618799206139822131`);
-			} else if (reaction.emoji.id === '☁') {
+			} else if (reaction.data.emoji.name === '☁') {
 				member.removeRole(`618799210262822931`);
 			} else {
 				member.removeRole(`618799203694673950`);
