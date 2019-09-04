@@ -146,7 +146,7 @@ client.on('raw', async event => {
 				}
 			}
 		} else {
-			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
+			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
 				//console.log("ek1")
 				if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleUpdates4 !== false || roleUpdates5 !== false || roleUpdates6 !== false || roleAnnouncements !== false || roleOther !== false) {
 					//console.log("ek2")
