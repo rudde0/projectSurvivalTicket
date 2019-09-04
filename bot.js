@@ -62,19 +62,20 @@ client.on('raw', async event => {
 	const channel = client.channels.get(data.channel_id);
 	const message = await channel.fetchMessage(data.message_id);
 	const member = message.guild.members.get(user.id);
+	const emojiName = data.emoji.name;
 	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
 	/* Ortak Duyurular */
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.name === '📢') {
+			if (emojiName === '📢') {
 				member.addRole(`562549572799561728`);
 			} else {
 				member.addRole(`562550876536045569`);
 			}
 		} else {
-			if (reaction.name === '📢') {
+			if (emojiName === '📢') {
 				member.removeRole(`562549572799561728`);
 			} else {
 				member.removeRole(`562550876536045569`);
@@ -84,13 +85,13 @@ client.on('raw', async event => {
 	/* ProjectSurvival Güncellemeleri */
 	if (message.author.id === '212243328245301268' && (message.id === '618803719949254676')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.name === '🌊') {
+			if (emojiName === '🌊') {
 				member.addRole(`618799200532168705`);
 			} else {
 				member.addRole(`618799189236645908`);
 			}
 		} else {
-			if (reaction.name === '🌊') {
+			if (emojiName === '🌊') {
 				member.removeRole(`618799200532168705`);
 			} else {
 				member.removeRole(`618799189236645908`);
@@ -100,21 +101,21 @@ client.on('raw', async event => {
 	/* Flaversum Güncellemeleri */
 	if (message.author.id === '212243328245301268' && (message.id === '618803744628539432')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (reaction.name === '👑') {
+			if (emojiName === '👑') {
 				member.addRole(`605420636923363331`);
-			} else if (reaction.name === '💎') {
+			} else if (emojiName === '💎') {
 				member.addRole(`618799206139822131`);
-			} else if (reaction.name === '☁') {
+			} else if (emojiName === '☁') {
 				member.addRole(`618799210262822931`);
 			} else {
 				member.addRole(`618799203694673950`);
 			}
 		} else {
-			if (reaction.name === '👑') {
+			if (emojiName === '👑') {
 				member.removeRole(`605420636923363331`);
-			} else if (reaction.name === '💎') {
+			} else if (emojiName === '💎') {
 				member.removeRole(`618799206139822131`);
-			} else if (reaction.name === '☁') {
+			} else if (emojiName === '☁') {
 				member.removeRole(`618799210262822931`);
 			} else {
 				member.removeRole(`618799203694673950`);
