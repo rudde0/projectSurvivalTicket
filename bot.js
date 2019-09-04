@@ -63,47 +63,83 @@ client.on('raw', async event => {
 	const message = await channel.fetchMessage(data.message_id);
 	const member = message.guild.members.get(user.id);
 	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
+	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
-	if (message.author.id === '212243328245301268' && (message.id === '562542165427879937')) { //Güncellemeler
+	/* Ortak Duyurular */
+	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			member.addRole(`562545238552608768`);
+			if (reaction.emoji.name === '📢') {
+				member.addRole(`562549572799561728`);
+			} else {
+				member.addRole(`562550876536045569`);
+			}
 		} else {
-			member.removeRole(`562545238552608768`);
+			if (reaction.emoji.id === '📢') {
+				member.removeRole(`562549572799561728`);
+			} else {
+				member.removeRole(`562550876536045569`);
+			}
 		}
 	}
-	if (message.author.id === '212243328245301268' && (message.id === '562542250257678347')) { //Duyurular
+	/* ProjectSurvival Güncellemeleri */
+	if (message.author.id === '212243328245301268' && (message.id === '618803719949254676')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			member.addRole(`562549572799561728`);
+			if (reaction.emoji.id === '🌊') {
+				member.addRole(`618799200532168705`);
+			} else {
+				member.addRole(`618799189236645908`);
+			}
 		} else {
-			member.removeRole(`562549572799561728`);
+			if (reaction.emoji.id === '🌊') {
+				member.removeRole(`618799200532168705`);
+			} else {
+				member.removeRole(`618799189236645908`);
+			}
 		}
 	}
-	if (message.author.id === '212243328245301268' && (message.id === '562542419975864320')) { //Diğer
+	/* Flaversum Güncellemeleri */
+	if (message.author.id === '212243328245301268' && (message.id === '618803744628539432')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
-			member.addRole(`562550876536045569`);
+			if (reaction.emoji.id === '👑') {
+				member.addRole(`605420636923363331`);
+			} else if (reaction.emoji.id === '💎') {
+				member.addRole(`618799206139822131`);
+			} else if (reaction.emoji.id === '☁') {
+				member.addRole(`618799210262822931`);
+			} else {
+				member.addRole(`618799203694673950`);
+			}
 		} else {
-			member.removeRole(`562550876536045569`);
+			if (reaction.emoji.id === '👑') {
+				member.removeRole(`605420636923363331`);
+			} else if (reaction.emoji.id === '💎') {
+				member.removeRole(`618799206139822131`);
+			} else if (reaction.emoji.id === '☁') {
+				member.removeRole(`618799210262822931`);
+			} else {
+				member.removeRole(`618799203694673950`);
+			}
 		}
 	}
-	if (message.author.id === '212243328245301268' && (message.id === '581472119301341185')) { //Olaylar
-		if (event.t === "MESSAGE_REACTION_ADD") {
-			member.addRole(`581472494607794206`);
-		} else {
-			member.removeRole(`581472494607794206`);
-		}
-	}
+
 	setTimeout(function(){
-		const roleUpdates = message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"); //message.member.roles.find("name", "🔔 Güncellemeler Kaynağı");
-		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular Kaynağı");
-		const roleOther = message.guild.roles.find(r => r.name === "🔔 Diğer Kaynağı");
-		const roleEvents = message.guild.roles.find(r => r.name === "🔔 Olaylar Kaynağı");
+		const roleUpdates1 = message.guild.roles.find(r => r.name === "🔔 Dead End");
+		const roleUpdates2 = message.guild.roles.find(r => r.name === "🔔 Kraken");
+		const roleUpdates3 = message.guild.roles.find(r => r.name === "🔔 Varoux");
+		const roleUpdates4 = message.guild.roles.find(r => r.name === "🔔 Flaversum");
+		const roleUpdates5 = message.guild.roles.find(r => r.name === "🔔 Skyein");
+		const roleUpdates6 = message.guild.roles.find(r => r.name === "🔔 Nidavellir");
+
+		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular");
+		const roleOther = message.guild.roles.find(r => r.name === "🔔 Genel");
+		//const roleEvents = message.guild.roles.find(r => r.name === "🔔 Olaylar");
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
-		//var roleAll = message.member.roles.some(r=>["🔔 Güncellemeler Kaynağı", "🔔 Duyurular Kaynağı", "🔔 Diğer Kaynağı"].includes(r.name))
+
 		if (event.t !== "MESSAGE_REACTION_ADD") {
-			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
+			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
 				if(headline) {
 					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
-					if(roleUpdates !== true && roleAnnouncements !== true && roleOther !== true && roleEvents !== true) {
+					if(roleUpdates1 !== true && roleUpdates2 !== true && roleUpdates3 !== true && roleUpdates4 !== true && roleUpdates5 !== true && roleUpdates6 !== true && roleAnnouncements !== true && roleOther !== true) {
 						member.removeRole(`562549906011848714`);
 					}
 				}
@@ -111,7 +147,7 @@ client.on('raw', async event => {
 		} else {
 			if (message.id === '562542165427879937' || message.id === '562542250257678347' || message.id === '562542419975864320' || message.id === '581472119301341185') {
 				//console.log("ek1")
-				if(roleUpdates !== false || roleAnnouncements !== false || roleOther !== false || roleEvents !== false) {
+				if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleUpdates4 !== false || roleUpdates5 !== false || roleUpdates6 !== false || roleAnnouncements !== false || roleOther !== false) {
 					//console.log("ek2")
 					if(headline !== true) {
 						//console.log("ek3")
