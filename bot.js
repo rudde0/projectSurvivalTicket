@@ -56,8 +56,8 @@ const events = {
 };
 
 client.on('guildMemberUpdate', (oldMember, newMember) => {
-	console.log(`${newMember.roles.has(message.guild.roles.array())}`);
-	if (newMember.roles.has(message.guild.roles.array()) > 17) {
+	console.log(`${newMember.roles.has(newMember.guild.roles.array())}`);
+	if (newMember.roles.has(newMember.guild.roles.array()) > 17) {
 		if (newMember.roles.size == 1) {
 			newMember.removeRole(`627782465741783050`);
 		} else if (newMember.roles.size > 1) {
