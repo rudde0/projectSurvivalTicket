@@ -55,7 +55,7 @@ const events = {
 	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
 };
 
-client.on('guildMemberupdate', (oldMember, newMember) => {
+client.on('guildMemberUpdate', (oldMember, newMember) => {
 	console.log(`${newMember.roles.has(message.guild.roles.array())}`);
 	if (newMember.roles.has(message.guild.roles.array()) > 17) {
 		if (newMember.roles.size == 1) {
