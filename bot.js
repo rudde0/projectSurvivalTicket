@@ -63,7 +63,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
 		//} else if (newMember.roles.size > 1) {
 		newMember.addRole(`627782465741783050`);
 		//}
-	} else if (newMember.roles.size == 1) { {
+	} else if (newMember.roles.size == 1) {
 	  	newMember.removeRole(`627782465741783050`);
 	}
 });
