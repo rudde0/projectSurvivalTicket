@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const activities = require('./assets/activities');
-/*const fs = require("fs");
-let ticketbans = JSON.parse(fs.readFileSync("./ticketbans.json", "utf8"));*/
 
 client.on('ready', () => {
 	console.log(`${client.user.tag} adiyla bot baslatildi. Kimlik: ${client.user.id}`);
@@ -26,30 +24,6 @@ function clean(text) {
         return text;
 }
 
-/*exports.run = async (reaction, user) => {
-	console.log('new reacrion')
-	var role
-	var given
-	var msg = await reaction.message
-	console.log('En azından okundu')
-	if (msg.id == '562542165427879937') {
-		console.log('valid reacrion')
-		if (reaction.emoji.id == '🛠') {
-			role = msg.guild.roles.get('562545238552608768')
-			console.log('new ping reaction')
-			if (user.hasRole(role)) {
-				user.removeRole(role)
-				given = ' You have left @'
-			} else {
-				user.addRole(role)
-				given = ' You have joined @'
-			}
-			user.send(reaction.emoji.toString() + given + role.name + '.')
-		}
-		console.log('new reacrion done')
-	}
-}*/
-
 const events = {
 	MESSAGE_REACTION_ADD: 'messageReactionAdd',
 	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
@@ -58,11 +32,11 @@ const events = {
 /*client.on('guildMemberUpdate', (oldMember, newMember) => {
 	console.log(`${newMember.guild.roles.array()}`);
 	if (newMember.roles.has(newMember.guild.roles.array()) > 17) {
-		//if (newMember.roles.size == 1) {
-		//	newMember.removeRole(`627782465741783050`);
-		//} else if (newMember.roles.size > 1) {
+		if (newMember.roles.size == 1) {
+			newMember.removeRole(`627782465741783050`);
+		} else if (newMember.roles.size > 1) {
 		newMember.addRole(`627782465741783050`);
-		//}
+		}
 	} else if (newMember.roles.size == 1) {
 	  	newMember.removeRole(`627782465741783050`);
 	}
