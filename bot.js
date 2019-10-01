@@ -177,7 +177,7 @@ client.on('message', message => {
 		if (!message.channel.name.startsWith(`🤖`)) return message.channel.send(`Sistem, sadece komut kanalında çalıştırılabilir.`);
 		if (message.guild.channels.exists("name", "🎫" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
-		message.guild.createChannel(`🎫${message.author.username}`, 1).then(c => {
+		message.guild.createChannel(`🎫${message.author.username}`, 0).then(c => {
 			c.setTopic(`${reason}`);
 			let role = message.guild.roles.find("name", "Yetkili: Ticket Yönetimi");
 			let role2 = message.guild.roles.find("name", "@everyone");
