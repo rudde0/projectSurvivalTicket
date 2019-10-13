@@ -221,12 +221,12 @@ client.on('message', message => {
 					icon_url: client.user.avatarURL
 				},
 				title: `Ticket oluşturuldu! (@${message.author.username})`,
-				url: "http://www.projectsurvivalmc.com",
+				url: "https://www.projects.gg/",
 				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.\nSorununuz çözüldüğü zaman `-kapat` yazarak odayı kapatınız.",
 				timestamp: new Date(),
 				footer: {
 					icon_url: client.user.avatarURL,
-					text: "© ProjectSurvival"
+					text: "© PROJECTS"
 				}
 			}
 			});
@@ -246,15 +246,23 @@ client.on('message', message => {
 		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
 		.setThumbnail(message.guild.iconURL)
 		.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
-		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.\n-ip **»** Sunucu IP'sini gönderir.")
+		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.\n-ip **»** Sunucu IP'sini gönderir.\n-siteler **»** PROJECTS servislerini gösterir.")
 		message.channel.send({embed: embed});
 	}
 	if (message.content === '-ip') {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
-		.addField("Kullanılabilir IP adresleri", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com\n\noyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com\n\noyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
+		.addField("Kullanılabilir IP adreslerimiz:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com\n\noyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com\n\noyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
+		.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
+		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
+		message.channel.send({embed: embed});
+	}
+	if (message.content === '-siteler') {
+		var embed = new Discord.RichEmbed()
+		.setColor('#00FF00')
+		.addField("Projects servisleri:", "\n:e_mail: <https://dc.projects.gg/> **»** Discord anlık davet bağlantısı\n\n:small_red_triangle_down: <https://indir.projects.gg/> **»** Minecraft indirme konusu\n\n:skull: <https://deadend.projects.gg/> **»** Dead End tanıtım konusu\n\n:ocean: <https://kraken.projects.gg/> **»** Kraken tanıtım konusu\n\n:tools: <https://bugs.projects.gg/> **»** Hata bildirme formu\n\n:briefcase: <https://app.projects.gg/> **»** Yetkili başvurusu formu\n\n:books: <https://wikiapp.projects.gg/> **»** Wiki takımı için başvuru formu\n\n:scroll: <https://terms.projects.gg/> **»** Sözleşme sayfası")
 		//.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
-		.setImage(`https://status.minecraftservers.org/classic/517604.png`)
+		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
 	}
 	if (message.content.toLowerCase().startsWith(`-kapat`) || message.content.toLowerCase().startsWith(`-close`)) {
