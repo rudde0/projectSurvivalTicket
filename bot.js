@@ -253,7 +253,7 @@ client.on('message', message => {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.addField("Kullanılabilir IP adreslerimiz:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com\n\noyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com\n\noyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
-		.setImage(`https://mcapi.us/server/image?ip=play.projectsurvivalmc.com&theme=dark`)
+		.setImage(`https://mcapi.us/server/image?ip=mc.projects.gg&theme=dark`)
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
 	}
