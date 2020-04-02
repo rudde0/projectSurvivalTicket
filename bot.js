@@ -84,8 +84,6 @@ client.on('raw', async event => {
 				member.addRole(`618799210262822931`);
 			} else if (emojiName === '💣') {
 				member.addRole(`618799203694673950`);
-			} else {
-				member.addRole(`618799203694673950`);
 			}
 		} else {
 			if (emojiName === '🌊') {
@@ -99,8 +97,6 @@ client.on('raw', async event => {
 			} else if (emojiName === '☁') {
 				member.removeRole(`618799210262822931`);
 			} else if (emojiName === '💣') {
-				member.addRole(`618799203694673950`);
-			} else {
 				member.removeRole(`618799203694673950`);
 			}
 		}
@@ -120,7 +116,7 @@ client.on('raw', async event => {
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
 
 		if (event.t !== "MESSAGE_REACTION_ADD") {
-			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
+			if (message.id === '618803719949254676' || message.id === '618803744628539432') {
 				if(headline) {
 					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
 					if(roleUpdates1 !== true && roleUpdates2 !== true && roleUpdates3 !== true && roleUpdates5 !== true && roleUpdates6 !== true && roleAnnouncements !== true && roleOther !== true) {
@@ -129,7 +125,7 @@ client.on('raw', async event => {
 				}
 			}
 		} else {
-			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
+			if (message.id === '618803719949254676' || message.id === '618803744628539432') {
 				//console.log("ek1")
 				if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleUpdates5 !== false || roleUpdates6 !== false || roleAnnouncements !== false || roleOther !== false) {
 					//console.log("ek2")
