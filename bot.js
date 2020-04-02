@@ -53,7 +53,7 @@ client.on('raw', async event => {
 	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
-	/* Ortak Duyurular */
+	// Announcements
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			if (emojiName === '📢') {
@@ -69,41 +69,37 @@ client.on('raw', async event => {
 			}
 		}
 	}
-	/* ProjectSurvival Güncellemeleri */
-	if (message.author.id === '212243328245301268' && (message.id === '618803719949254676')) { //Duyurular - Sözleşme - Ödeme
+	// Minecraft PROJECTS subscriptions
+	if (message.author.id === '212243328245301268' && (message.id === '618803719949254676')) { //Minecraft message
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			if (emojiName === '🌊') {
 				member.addRole(`618799200532168705`);
-			} else {
+			} else if (emojiName === '💀') {
 				member.addRole(`618799189236645908`);
-			}
-		} else {
-			if (emojiName === '🌊') {
-				member.removeRole(`618799200532168705`);
-			} else {
-				member.removeRole(`618799189236645908`);
-			}
-		}
-	}
-	/* Flaversum Güncellemeleri */
-	if (message.author.id === '212243328245301268' && (message.id === '618803744628539432')) { //Duyurular - Sözleşme - Ödeme
-		if (event.t === "MESSAGE_REACTION_ADD") {
-			if (emojiName === '👑') {
-				member.addRole(`605420636923363331`);
+			} else if (emojiName === '👑') {
+				member.addRole(`618799206139822131`);
 			} else if (emojiName === '💎') {
 				member.addRole(`618799206139822131`);
 			} else if (emojiName === '☁') {
 				member.addRole(`618799210262822931`);
+			} else if (emojiName === '💣') {
+				member.addRole(`618799203694673950`);
 			} else {
 				member.addRole(`618799203694673950`);
 			}
 		} else {
-			if (emojiName === '👑') {
-				member.removeRole(`605420636923363331`);
+			if (emojiName === '🌊') {
+				member.removeRole(`618799200532168705`);
+			} else if (emojiName === '💀') {
+				member.removeRole(`618799189236645908`);
+			} else if (emojiName === '👑') {
+				member.removeRole(`618799206139822131`);
 			} else if (emojiName === '💎') {
 				member.removeRole(`618799206139822131`);
 			} else if (emojiName === '☁') {
 				member.removeRole(`618799210262822931`);
+			} else if (emojiName === '💣') {
+				member.addRole(`618799203694673950`);
 			} else {
 				member.removeRole(`618799203694673950`);
 			}
@@ -114,9 +110,9 @@ client.on('raw', async event => {
 		const roleUpdates1 = message.guild.roles.find(r => r.name === "🔔 Dead End");
 		const roleUpdates2 = message.guild.roles.find(r => r.name === "🔔 Kraken");
 		const roleUpdates3 = message.guild.roles.find(r => r.name === "🔔 Varoux");
-		const roleUpdates4 = message.guild.roles.find(r => r.name === "🔔 Flaversum");
+		//const roleUpdates4 = message.guild.roles.find(r => r.name === "🔔 Flaversum");
 		const roleUpdates5 = message.guild.roles.find(r => r.name === "🔔 Skyein");
-		const roleUpdates6 = message.guild.roles.find(r => r.name === "🔔 Nidavellir");
+		const roleUpdates6 = message.guild.roles.find(r => r.name === "🔔 Silmaril");
 
 		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular");
 		const roleOther = message.guild.roles.find(r => r.name === "🔔 Genel");
@@ -127,7 +123,7 @@ client.on('raw', async event => {
 			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
 				if(headline) {
 					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
-					if(roleUpdates1 !== true && roleUpdates2 !== true && roleUpdates3 !== true && roleUpdates4 !== true && roleUpdates5 !== true && roleUpdates6 !== true && roleAnnouncements !== true && roleOther !== true) {
+					if(roleUpdates1 !== true && roleUpdates2 !== true && roleUpdates3 !== true && roleUpdates5 !== true && roleUpdates6 !== true && roleAnnouncements !== true && roleOther !== true) {
 						member.removeRole(`562549906011848714`);
 					}
 				}
@@ -135,7 +131,7 @@ client.on('raw', async event => {
 		} else {
 			if (message.id === '618803670066397222' || message.id === '618803719949254676' || message.id === '618803744628539432') {
 				//console.log("ek1")
-				if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleUpdates4 !== false || roleUpdates5 !== false || roleUpdates6 !== false || roleAnnouncements !== false || roleOther !== false) {
+				if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleUpdates5 !== false || roleUpdates6 !== false || roleAnnouncements !== false || roleOther !== false) {
 					//console.log("ek2")
 					if(headline !== true) {
 						//console.log("ek3")
