@@ -214,7 +214,7 @@ client.on('message', message => {
 				},
 				title: `Ticket oluşturuldu! (@${message.author.username})`,
 				url: "https://www.projects.gg/",
-				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.\nSorununuz çözüldüğü zaman `-kapat` yazarak odayı kapatınız.\n\n**Kullanıcı adınızı ve hangi sunucuyla ilişkili olduğunu lütfen belirtin!**",
+				description: "Ticket odasını oluşturdunuz.\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.\nSorununuz çözüldüğü zaman `-kapat` yazarak odayı kapatınız.\n\n**Kullanıcı adınızı ve bu desteğin hangi sunucuyla ilişkili olduğunu lütfen belirtin!**",
 				timestamp: new Date(),
 				footer: {
 					icon_url: client.user.avatarURL,
