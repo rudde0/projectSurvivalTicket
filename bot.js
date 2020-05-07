@@ -119,6 +119,7 @@ client.on('raw', async event => {
 				}
 				});
 			});
+		}
 	// Announcements
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
