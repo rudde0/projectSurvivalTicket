@@ -159,7 +159,7 @@ client.on('message', message => {
 			userData.ticketbans = 0;
 		}
 	}*/
-	if (message.channel.id == 707986838173778063) {
+	if (message.channel.id == 708012681986179182) {
 		//const isitBot = message.guild.roles.find(r => r.name === "🤖 Botlar");
 		if (message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 496345281844215829 || message.author.id == 512686520684118019) {
 			//message.channel.send('Kaosu durdurdum')
