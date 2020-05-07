@@ -54,7 +54,7 @@ client.on('raw', async event => {
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
 	// Ticket Creation
-	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Support channel message ID
+	if (message.author.id === '707987775273828363')) { //Support channel message ID
 		if (emojiName === '🎟️') {
 			//let userData = banlevel[message.author.id];
 			//const reason = message.content.split(" ").slice(1).join(" ");
