@@ -201,8 +201,8 @@ client.on('message', message => {
 			return true;
 		}
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
-		message.guild.createChannel(`🎫${message.author.username}`, 0).then(c => {
-			c.setParent("707998986233184378");
+		message.guild.createChannel(`🎫${message.author.username}`, { type: 'text', parent: '707998986233184378' }).then(c => {
+			//c.setParent('707998986233184378');
 			c.setTopic(`${reason}`);
 			let role = message.guild.roles.find("name", "Yetkili: Ticket Yönetimi");
 			let role2 = message.guild.roles.find("name", "@everyone");
@@ -387,4 +387,5 @@ client.on('message', message => {
 		});
 	}
 });
+
 client.login(process.env.bot_tokeni);
