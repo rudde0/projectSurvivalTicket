@@ -53,6 +53,72 @@ client.on('raw', async event => {
 	const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
+	// Ticket Creation
+	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Support channel message ID
+		if (emojiName === '🎟️') {
+			//let userData = banlevel[message.author.id];
+			//const reason = message.content.split(" ").slice(1).join(" ");
+			//let notAllowedRole = message.guild.roles.find("name", "Susturulmuş: Ticket");
+			//if (notAllowedRole)
+			/*if(message.member.roles.has(`589765983128911925`)) {
+				return message.channel.send(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
+			}*/
+			if (message.guild.channels.exists("name", "🎫" + member.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
+			//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
+			message.guild.createChannel(`🎫${member.username}`, 0).then(c => {
+				c.setTopic(`${reason}`);
+				let role = message.guild.roles.find("name", "Yetkili: Ticket Yönetimi");
+				let role2 = message.guild.roles.find("name", "@everyone");
+				let role3 = message.guild.roles.find("name", "İnsan Kaynakları Yöneticisi");
+				let role4 = message.guild.roles.find("name", "Yetkili: Adil Oyun Sağlayıcısı");
+				c.overwritePermissions(role, {
+					SEND_MESSAGES: true,
+					READ_MESSAGES: true,
+					MANAGE_CHANNELS: true,
+					MANAGE_MESSAGES: true,
+					ATTACH_FILES: true
+				});
+				c.overwritePermissions(role3, {
+					SEND_MESSAGES: true,
+					READ_MESSAGES: true,
+					MANAGE_CHANNELS: true,
+					MANAGE_MESSAGES: true,
+					ATTACH_FILES: true
+				});
+				c.overwritePermissions(role4, {
+					SEND_MESSAGES: true,
+					READ_MESSAGES: true,
+					MANAGE_CHANNELS: true,
+					MANAGE_MESSAGES: true,
+					ATTACH_FILES: true
+				});
+				c.overwritePermissions(role2, {
+					SEND_MESSAGES: false,
+					READ_MESSAGES: false,
+					ATTACH_FILES: true
+				});
+				c.overwritePermissions(member, {
+					SEND_MESSAGES: true,
+					READ_MESSAGES: true,
+					ATTACH_FILES: true
+				});
+				c.send({embed: {
+					color: 3447003,
+					/*author: {
+						name: client.user.username,
+						icon_url: client.user.avatarURL
+					},*/
+					title: `Ticket oluşturuldu! (@${member})`,
+					url: "https://www.projects.gg/",
+					description: "Destek hattı başarıyla oluşturuldu!\nBu kanalda sorununuzla ilgili bilgi veriniz.\nYetkilileri etiketlemeyin, müsait olunca ticket cevaplanılır.\nSorununuz çözüldüğü zaman `-kapat` yazarak odayı kapatınız.\n\n**Kullanıcı adınızı ve bu desteğin hangi sunucuyla ilişkili olduğunu lütfen belirtin!**",
+					timestamp: new Date(),
+					footer: {
+						icon_url: client.user.avatarURL,
+						text: "© PROJECTS"
+					}
+				}
+				});
+			});
 	// Announcements
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
@@ -161,11 +227,12 @@ client.on('message', message => {
 	}*/
 	if (message.content.toLowerCase().startsWith(`-destek`) || message.content.toLowerCase().startsWith(`-oluştur`) || message.content.toLowerCase().startsWith(`-olustur`) || message.content.toLowerCase().startsWith(`-new`)) {
 		//let userData = banlevel[message.author.id];
-		const reason = message.content.split(" ").slice(1).join(" ");
+		//const reason = message.content.split(" ").slice(1).join(" ");
 		let allowedRole = message.guild.roles.find("name", "Susturulmuş: Ticket");
 		/*if(message.member.roles.has(`589765983128911925`)) {
 			return message.channel.send(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
 		}*/
+		if (allowedRole) return message.channel.send(`Destek talebi açma izniniz alınmış. Yaptığınız herhangi bir ihlalden kaynaklı olabilir.`);
 		if (!message.channel.name.startsWith(`🤖`)) return message.channel.send(`Sistem, sadece komut kanalında çalıştırılabilir.`);
 		if (message.guild.channels.exists("name", "🎫" + message.author.username)) return message.channel.send(`Halihazırda açık bir ticketiniz var.`);
 		//if (userData.ticketbans >= 1) return message.channel.reply(`Daha önceden yapılmış bir ihlal nedeniyle ticket açamıyorsunuz.`);
