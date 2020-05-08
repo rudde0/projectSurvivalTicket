@@ -345,10 +345,10 @@ client.on('message', message => {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.setTimestamp()
-		.setAuthor("ProjectSurvival Ticket", message.guild.iconURL)
+		.setAuthor("PROJECTS", message.guild.iconURL)
 		.setThumbnail(message.guild.iconURL)
-		.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
-		.addField("Ticket Kullanımı", "-oluştur **»** Yeni ticket odası açar.\n-kapat **»** Oluşturulan ticket odasını kapatır.\n-ip **»** Sunucu IP'sini gönderir.\n-siteler **»** PROJECTS servislerini gösterir.")
+		//.addField("Ne işe yarar?", "Oyuncu şikayetlerinizi, kritik hata bildirimlerini, ödeme bildiriminizi ticket açıp bize ulaştırabilirsiniz.")
+		.addField("Komutlar", "\n-ip **»** Sunucu IP'sini gönderir.\n-siteler **»** PROJECTS servislerini gösterir.")
 		message.channel.send({embed: embed});
 	}
 	if (message.content === '-ip') {
