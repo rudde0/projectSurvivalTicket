@@ -354,7 +354,11 @@ client.on('message', message => {
 	if (message.content === '-ip') {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
-		.addField("Kullanılabilir IP adreslerimiz:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com\n\noyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com\n\noyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
+		.addField("PROJECTSURVIVALMC.COM:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com")
+		.addField("SURVIVALTR.COM:", "oyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com")
+		.addField("PROJECTS.GG:", "oyna.projects.gg\nplay.projects.gg\nmc.projects.gg\n\noyna.projects.com.tr\nplay.projects.com.tr\nmc.projects.com.tr\n\noyna.projectsgg.com.tr\nplay.projectsgg.com.tr\nmc.projectsgg.com.tr")
+		.addField("PROJECTS.COM.TR:", "oyna.projects.com.tr\nplay.projects.com.tr\nmc.projects.com.tr")
+		.addField("PROJECTSGG.COM.TR:", "oyna.projectsgg.com.tr\nplay.projectsgg.com.tr\nmc.projectsgg.com.tr")
 		.setImage(`https://mcapi.us/server/image?ip=mc.projects.gg&theme=dark`)
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
