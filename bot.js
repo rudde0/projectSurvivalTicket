@@ -17,7 +17,7 @@ client.on('ready', () => {
 });
 client.on('error', console.error);
 
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
 	//var role = member.guild.roles.find('name', 'user');
 	member.addRole(`713292117283307531`);
 }
