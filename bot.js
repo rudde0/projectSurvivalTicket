@@ -17,6 +17,11 @@ client.on('ready', () => {
 });
 client.on('error', console.error);
 
+bot.on('guildMemberAdd', member => {
+	//var role = member.guild.roles.find('name', 'user');
+	member.addRole(`713292117283307531`);
+}
+
 function clean(text) {
     if (typeof(text) === "string")
       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
