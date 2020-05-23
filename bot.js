@@ -20,7 +20,7 @@ client.on('error', console.error);
 client.on('guildMemberAdd', member => {
 	//var role = member.guild.roles.find('name', 'user');
 	member.addRole("713292117283307531");
-}
+});
 
 function clean(text) {
     if (typeof(text) === "string")
