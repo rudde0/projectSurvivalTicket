@@ -60,15 +60,17 @@ client.on('raw', async event => {
 	const reaction = message.reactions.get(emojiKey);
 	// Announcements
 	if (message.author.id === '159985870458322944' && (message.id === '713838316738576507')) { //MeeBot
-		if (event.t === "MESSAGE_REACTION_ADD") {
-			//message.reaction.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
-			message.clearReactions();
-			message.react('713837840257253478');
-			message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
-				.then(msg => {
-					msg.delete(7000)
-				})
-				.catch();
+		if (member.id !== "496345281844215829" && member.id !== "159985870458322944") {
+			if (event.t === "MESSAGE_REACTION_ADD") {
+				//message.reaction.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
+				message.clearReactions();
+				message.react('713837840257253478');
+				message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
+					.then(msg => {
+						msg.delete(7000)
+					})
+					.catch();
+			}
 		}
 	}
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
