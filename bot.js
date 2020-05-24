@@ -63,6 +63,11 @@ client.on('raw', async event => {
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			message.reactions.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
 			message.react('713837840257253478');
+			message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
+				.then(msg => {
+					msg.delete(7000)
+				})
+				.catch();
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			if (emojiName === '📢') {
