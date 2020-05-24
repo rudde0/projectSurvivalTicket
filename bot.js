@@ -65,11 +65,14 @@ client.on('raw', async event => {
 				//message.reaction.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
 				message.clearReactions();
 				message.react('713837840257253478');
-				message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
-					.then(msg => {
-						msg.delete(7000)
-					})
-					.catch();
+				if (member.hasrole('713292117283307531')) {
+					member.removeRole('713292117283307531');
+					message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
+						.then(msg => {
+							msg.delete(7000)
+						})
+						.catch();
+				}
 			}
 		}
 	}
