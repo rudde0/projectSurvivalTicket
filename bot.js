@@ -382,6 +382,20 @@ client.on('message', message => {
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
 	}
+	if (message.content === '-sendjoinmessage') {
+		if (!message.member.roles.find(r => r.name === "🌸 Topluluk Yöneticisi")) {
+			return true;
+		}
+		var embed = new Discord.RichEmbed()
+		.setColor('#277d2a')
+		.addField("HESAP AKTİVASYONU:", "PROJECTS discord sunucusuna hoş geldiniz!\n\nKanalları ve topluluğu görebilmek için doğrulama\namacıyla aşağıdaki tepki butonuna tıklamanız\ngerekiyor.")
+		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
+		message.channel.send({embed: embed})
+			.then(msg => {
+				msg.react('713837840257253478')
+			})
+			.catch();
+	}
 	if (message.content === '-siteler') {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
