@@ -62,7 +62,7 @@ client.on('raw', async event => {
 	if (message.author.id === '159985870458322944' && (message.id === '713838316738576507')) { //MeeBot
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			//message.reaction.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
-			message.reactions.get("713837840257253478").removeAll();
+			message.reactions.get("713837840257253478").remove(user);
 			message.react('713837840257253478');
 			message.channel.send(`Kayıt isteğiniz alındı, hoş geldiniz!`)
 				.then(msg => {
