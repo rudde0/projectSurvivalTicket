@@ -59,6 +59,10 @@ client.on('raw', async event => {
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
 	// Announcements
+	if (message.author.id === '159985870458322944' && (message.id === '713838316738576507')) { //MeeBot
+		if (event.t === "MESSAGE_REACTION_ADD") {
+			message.reactions.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
+			message.react('713837840257253478');
 	if (message.author.id === '212243328245301268' && (message.id === '618803670066397222')) { //Duyurular - Sözleşme - Ödeme
 		if (event.t === "MESSAGE_REACTION_ADD") {
 			if (emojiName === '📢') {
