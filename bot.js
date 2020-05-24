@@ -59,7 +59,7 @@ client.on('raw', async event => {
 	//const reaction = collected.first();
 	const reaction = message.reactions.get(emojiKey);
 	// Announcements
-	if (message.author.id === '159985870458322944' && (message.id === '713838316738576507')) { //MeeBot
+	if (message.author.id === '496345281844215829' && (channel.id === '713835869781360681')) {
 		if (member.id !== "496345281844215829" && member.id !== "159985870458322944") {
 			if (event.t === "MESSAGE_REACTION_ADD") {
 				//message.reaction.removeAll().catch(error => console.error('Tepkileri silerken hata oluştu: ', error));
