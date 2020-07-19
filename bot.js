@@ -138,7 +138,7 @@ client.on('raw', async event => {
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
 
 		if (event.t !== "MESSAGE_REACTION_ADD") {
-			if (message.id === '618803719949254676' || message.id === '618803744628539432') {
+			if (message.id === '618803719949254676' || message.id === '618803670066397222') {
 				if(headline) {
 					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
 					if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
@@ -147,7 +147,7 @@ client.on('raw', async event => {
 				}
 			}
 		} else {
-			if (message.id === '618803719949254676' || message.id === '618803744628539432') {
+			if (message.id === '618803719949254676' || message.id === '618803670066397222') {
 				//console.log("ek1")
 				if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
 					//console.log("ek2")
