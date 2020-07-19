@@ -132,12 +132,12 @@ client.on('raw', async event => {
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
 		if(message.id === '618803719949254676' || message.id === '618803670066397222') {
 			if(headline) {
-				message.channel.reply("remove task");
+				message.channel.send("remove task");
 				if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
 					member.removeRole(`562549906011848714`);
 				}
 			} else if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
-				message.channel.reply("add task");
+				message.channel.send("add task");
 				member.addRole(`562549906011848714`);
 			}
 		}
