@@ -131,14 +131,20 @@ client.on('raw', async event => {
 		const roleOther = message.guild.roles.find(r => r.name === "🔔 Genel");
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
 		if(message.id === '618803719949254676' || message.id === '618803670066397222') {
-			if(headline !== false) {
-				message.channel.send("{$headline} remove task");
-				if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
-					member.removeRole(`562549906011848714`);
+			if (event.t === "MESSAGE_REACTION_ADD") {
+				if(headline !== true) {
+					message.channel.send("${headline} add task");
+					if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
+						member.addRole(`562549906011848714`);
+					}
 				}
-			} else if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
-				message.channel.send("{$headline} add task");
-				member.addRole(`562549906011848714`);
+			} else {
+				if(headline !== false) {
+					message.channel.send("${headline} remove task");
+					if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
+						member.removeRole(`562549906011848714`);
+					}
+				}
 			}
 		}
 	 }, 1000);
