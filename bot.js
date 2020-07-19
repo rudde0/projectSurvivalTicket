@@ -123,37 +123,6 @@ client.on('raw', async event => {
 			}
 		}
 	}
-
-	setTimeout(function(){
-		const roleUpdates1 = message.guild.roles.find(r => r.name === "🔔 Dead End");
-		const roleUpdates2 = message.guild.roles.find(r => r.name === "🔔 Kraken");
-		//const roleUpdates3 = message.guild.roles.find(r => r.name === "🔔 Varoux");
-		//const roleUpdates4 = message.guild.roles.find(r => r.name === "🔔 Flaversum");
-		//const roleUpdates5 = message.guild.roles.find(r => r.name === "🔔 Skyein");
-		//const roleUpdates6 = message.guild.roles.find(r => r.name === "🔔 Silmaril");
-
-		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular");
-		const roleOther = message.guild.roles.find(r => r.name === "🔔 Genel");
-		//const roleEvents = message.guild.roles.find(r => r.name === "🔔 Olaylar");
-		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
-		if (message.id === '618803719949254676' || message.id === '618803670066397222') {
-			//if (event.t !== "MESSAGE_REACTION_ADD") {
-			if(headline) {
-					//console.log(!message.guild.roles.find(r => r.name === "🔔 Güncellemeler Kaynağı"))
-				if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
-					member.removeRole(`562549906011848714`);
-				}
-			}
-			//} else {
-				//console.log("ek1")
-			else if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
-				//console.log("ek2")
-					//console.log("ek3")
-				member.addRole(`562549906011848714`);
-				}
-			}
-		}
-	 }, 1000);
 });
 
 client.on('message', message => {
