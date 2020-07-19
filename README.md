@@ -1,4 +1,4 @@
-Discord Sunucusu: http://discord.gg/9hxHCTQ
-Website: https://survivaltr.com/
+Discord: http://dc.projects.gg/
+Web: https://projects.com.tr/
 
 © PROJECTS.GG 2020
