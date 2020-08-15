@@ -67,6 +67,7 @@ client.on('raw', async event => {
 				message.react('713837840257253478');
 				if (member.roles.has('713292117283307531')) {
 					member.removeRole('713292117283307531');
+					member.addRole('627525871892430882');
 					message.channel.send(`Merhabalar ${member}. Kayıt isteğiniz başarıyla tamamlandı, hoş geldiniz!`)
 						.then(msg => {
 							msg.delete(7000)
