@@ -179,7 +179,7 @@ client.on('message', message => {
 				message.member.removeRole(`713292117283307531`);
 				message.reply(`kayıt isteğiniz başarıyla tamamlandı. Hoş geldiniz!`)
 					.then(msg => {
-						message.delete(7000)
+						msg.delete(7000)
 					})
 					.catch();
 			}
