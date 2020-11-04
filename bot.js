@@ -171,6 +171,20 @@ client.on('message', message => {
 			userData.ticketbans = 0;
 		}
 	}*/
+	if(message.channel.id === '713835869781360681') {
+		if(member.id !== "496345281844215829" && member.id !== "159985870458322944") {
+			if(message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 512686520684118019 || message.author.id == 496345281844215829) return true;
+			message.delete(200);
+			if (member.hasRole(`713292117283307531`)) {
+				member.removeRole(`713292117283307531`);
+				message.channel.send(`Merhabalar ${member}. Kayıt isteğiniz başarıyla tamamlandı, hoş geldiniz!`)
+					.then(msg => {
+						msg.delete(7000)
+					})
+					.catch();
+			}
+		}
+	}
 	if (message.channel.id == 708012681986179182) {
 		//const isitBot = message.guild.roles.find(r => r.name === "🤖 Botlar");
 		if (message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 496345281844215829 || message.author.id == 512686520684118019) {
