@@ -176,12 +176,12 @@ client.on('message', message => {
 			if(message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 512686520684118019 || message.author.id == 496345281844215829) return true;
 			message.delete(200);
 			if (message.member.roles.has(`713292117283307531`)) {
-				message.member.removeRole(`713292117283307531`);
 				message.reply(`kayıt isteğiniz başarıyla tamamlandı. Hoş geldiniz!`)
 					.then(msg => {
 						msg.delete(7000)
 					})
 					.catch();
+				message.member.removeRole(`713292117283307531`);
 			}
 		}
 	}
