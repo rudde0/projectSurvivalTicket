@@ -177,7 +177,7 @@ client.on('message', message => {
 			message.delete(200);
 			if (message.member.roles.has(`713292117283307531`)) {
 				message.member.removeRole(`713292117283307531`);
-				message.message.channel.send(`Merhabalar ${message.member}. Kayıt isteğiniz başarıyla tamamlandı, hoş geldiniz!`)
+				message.reply(`kayıt isteğiniz başarıyla tamamlandı. Hoş geldiniz!`)
 					.then(msg => {
 						message.delete(7000)
 					})
