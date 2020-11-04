@@ -395,7 +395,7 @@ client.on('message', message => {
 		}
 		var embed = new Discord.RichEmbed()
 		.setColor('#277d2a')
-		.addField("HESAP AKTİVASYONU:", "PROJECTS discord sunucusuna hoş geldiniz!\n\nKanalları ve topluluğu görebilmek için doğrulama\namacıyla aşağıdaki tepki butonuna tıklamanız\ngerekiyor.")
+		.addField("HESAP AKTİVASYONU:", "PROJECTS discord sunucusuna hoş geldiniz!\n\nKanalları ve topluluğu görebilmek için doğrulama\namacıyla aşağıdaki tepki butonuna tıklamanız\ngerekiyor.\n\nDilerseniz buraya bir şeyler yazarak da\nkaydolabilirsiniz.")
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed})
 			.then(msg => {
