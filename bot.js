@@ -381,7 +381,6 @@ client.on('message', message => {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.addField("PROJECTSURVIVALMC.COM:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com")
-		.addField("SURVIVALTR.COM:", "oyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com")
 		.addField("PROJECTS.GG:", "oyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
 		.addField("PROJECTS.COM.TR:", "oyna.projects.com.tr\nplay.projects.com.tr\nmc.projects.com.tr")
 		.addField("PROJECTSGG.COM.TR:", "oyna.projectsgg.com.tr\nplay.projectsgg.com.tr\nmc.projectsgg.com.tr")
