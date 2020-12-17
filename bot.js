@@ -171,6 +171,20 @@ client.on('message', message => {
 			userData.ticketbans = 0;
 		}
 	}*/
+	if(message.channel.id === '713835869781360681') {
+		if(message.member.id !== "496345281844215829" && message.member.id !== "159985870458322944") {
+			if(message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 512686520684118019 || message.author.id == 496345281844215829) return true;
+			message.delete(200);
+			if (message.member.roles.has(`713292117283307531`)) {
+				message.reply(`kayıt isteğiniz başarıyla tamamlandı. Hoş geldiniz!`)
+					.then(msg => {
+						msg.delete(7000)
+					})
+					.catch();
+				message.member.removeRole(`713292117283307531`);
+			}
+		}
+	}
 	if (message.channel.id == 708012681986179182) {
 		//const isitBot = message.guild.roles.find(r => r.name === "🤖 Botlar");
 		if (message.member.roles.find(r => r.name === "🤖 Botlar") || message.author.id == 496345281844215829 || message.author.id == 512686520684118019) {
@@ -367,7 +381,6 @@ client.on('message', message => {
 		var embed = new Discord.RichEmbed()
 		.setColor('#00FF00')
 		.addField("PROJECTSURVIVALMC.COM:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com")
-		.addField("SURVIVALTR.COM:", "oyna.survivaltr.com\nplay.survivaltr.com\nmc.survivaltr.com")
 		.addField("PROJECTS.GG:", "oyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
 		.addField("PROJECTS.COM.TR:", "oyna.projects.com.tr\nplay.projects.com.tr\nmc.projects.com.tr")
 		.addField("PROJECTSGG.COM.TR:", "oyna.projectsgg.com.tr\nplay.projectsgg.com.tr\nmc.projectsgg.com.tr")
@@ -381,7 +394,7 @@ client.on('message', message => {
 		}
 		var embed = new Discord.RichEmbed()
 		.setColor('#277d2a')
-		.addField("HESAP AKTİVASYONU:", "PROJECTS discord sunucusuna hoş geldiniz!\n\nKanalları ve topluluğu görebilmek için doğrulama\namacıyla aşağıdaki tepki butonuna tıklamanız\ngerekiyor.")
+		.addField("HESAP AKTİVASYONU:", "PROJECTS discord sunucusuna hoş geldiniz!\n\nKanalları ve topluluğu görebilmek için doğrulama\namacıyla aşağıdaki tepki butonuna tıklamanız\ngerekiyor.\n\nDilerseniz buraya bir şeyler yazarak da\nkaydolabilirsiniz.")
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed})
 			.then(msg => {
