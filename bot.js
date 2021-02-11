@@ -99,6 +99,8 @@ client.on('raw', async event => {
 				member.addRole(`618799200532168705`);
 			} else if (emojiName === '💀') {
 				member.addRole(`618799189236645908`);
+			} else if (emojiName === '🏮') {
+				member.addRole(`809546536999452673`);
 			/*} else if (emojiName === '👑') {
 				member.addRole(`618799206139822131`);
 			} else if (emojiName === '💎') {
@@ -113,6 +115,8 @@ client.on('raw', async event => {
 				member.removeRole(`618799200532168705`);
 			} else if (emojiName === '💀') {
 				member.removeRole(`618799189236645908`);
+			} else if (emojiName === '🏮') {
+				member.removeRole(`809546536999452673`);
 			/*} else if (emojiName === '👑') {
 				member.removeRole(`618799206139822131`);
 			} else if (emojiName === '💎') {
@@ -127,7 +131,7 @@ client.on('raw', async event => {
 	setTimeout(function(){
 		const roleUpdates1 = message.guild.roles.find(r => r.name === "🔔 Dead End");
 		const roleUpdates2 = message.guild.roles.find(r => r.name === "🔔 Kraken");
-
+		const roleUpdates3 = message.guild.roles.find(r => r.name === "🔔 Hadean");
 		const roleAnnouncements = message.guild.roles.find(r => r.name === "🔔 Duyurular");
 		const roleOther = message.guild.roles.find(r => r.name === "🔔 Genel");
 		const headline = message.guild.roles.find(r => r.name === "⠀⠀⠀⠀⠀⠀⠀⠀⠀Abonelikler⠀⠀⠀⠀⠀⠀⠀");
@@ -135,14 +139,14 @@ client.on('raw', async event => {
 			if (event.t === "MESSAGE_REACTION_ADD") {
 				if(headline !== true) {
 					//message.channel.send("${headline} add task");
-					if(roleUpdates1 !== false || roleUpdates2 !== false || roleAnnouncements !== false || roleOther !== false) {
+					if(roleUpdates1 !== false || roleUpdates2 !== false || roleUpdates3 !== false || roleAnnouncements !== false || roleOther !== false) {
 						member.addRole(`562549906011848714`);
 					}
 				}
 			} else {
 				if(headline !== false) {
 					//message.channel.send("${headline} remove task");
-					if(roleUpdates1 !== true && roleUpdates2 !== true && roleAnnouncements !== true && roleOther !== true) {
+					if(roleUpdates1 !== true && roleUpdates2 !== true && roleUpdates3 !== true && roleAnnouncements !== true && roleOther !== true) {
 						member.removeRole(`562549906011848714`);
 					}
 				}
