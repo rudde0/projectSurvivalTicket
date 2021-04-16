@@ -387,7 +387,6 @@ client.on('message', message => {
 		.addField("PROJECTSURVIVALMC.COM:", "oyna.projectsurvivalmc.com\nplay.projectsurvivalmc.com\nmc.projectsurvivalmc.com")
 		.addField("PROJECTS.GG:", "oyna.projects.gg\nplay.projects.gg\nmc.projects.gg")
 		.addField("PROJECTS.COM.TR:", "oyna.projects.com.tr\nplay.projects.com.tr\nmc.projects.com.tr")
-		.addField("PROJECTSGG.COM.TR:", "oyna.projectsgg.com.tr\nplay.projectsgg.com.tr\nmc.projectsgg.com.tr")
 		.setImage(`https://mcapi.us/server/image?ip=mc.projects.gg&theme=dark`)
 		//.setImage(`https://status.minecraftservers.org/classic/517604.png`)
 		message.channel.send({embed: embed});
